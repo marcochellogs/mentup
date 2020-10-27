@@ -25,7 +25,10 @@
   <% end %>
 
   <% if current_user.is_mentor %>
+  <% if @mentor_lesson.nil? %>
+    <%= link_to 'Create your Lesson', new_lesson_path  %>
   <%# card mentor lesson %>
+  <% else %>
     <div class="card">
       <div class="card-header">
         Your mentor lesson
@@ -36,9 +39,13 @@
         <p class="card-text"><%= @mentor_lesson.duration%></p>
         <p class="card-text"><%= @mentor_lesson.price%></p>
         <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-primary">Update lesson</a>
+
+
       </div>
     </div>
+    <% end %>
     <%# card mentor bookings  %>
+    <% if @mentor_bookings != nil %>
     <% if @mentor_bookings.count == 0 %>
       <h5>You have 0 bookings</h5>
     <% else %>
@@ -48,6 +55,7 @@
         <%= booking.user.name %> <%# student's name  %>
       <% end %>
     <% end %>
+  <% end %>
   <% end %>
 
 <a href="<%= root_path %>" class="btn btn-primary">Home</a>
