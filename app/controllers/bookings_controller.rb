@@ -1,6 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.bookings
+    @bookings = current_user.lesson.bookings
     #for each booking booking.review to show your user reviews
   end
 
@@ -10,6 +10,7 @@ class BookingsController < ApplicationController
 
   def create
     @booking = Booking.new(allowed_params)
+    @booking.user = current_user
     if @booking.save
       redirect_to lesson_path(@booking.lesson_id)
     else
