@@ -5,7 +5,7 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-
+# Cloudinary::Uploader.upload("san_francisco.jpg")
 User.create(email:"giulia@gmail.com", password:"hellosoraya123", name:"giulia", is_mentor:true)
 User.create(email:"marco@notgmail.com", password:"hellonaelle123", name:"marco", is_mentor:false)
 Category.create(name:"public")

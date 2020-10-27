@@ -1,4 +1,5 @@
 class LessonsController < ApplicationController
+  skip_before_action :authenticate_user!, only: :index
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
@@ -46,6 +47,6 @@ class LessonsController < ApplicationController
   end
 
   def params_allowed
-    params.require(:lesson).permit(:name, :description, :price, :duration, :category_id, :user_id)
+    params.require(:lesson).permit(:name, :description, :price, :duration, :category_id, :user_id, :photo)
   end
 end

@@ -8,4 +8,6 @@ class User < ApplicationRecord
   has_many :lessons, through: :bookings
   has_many :reviews, through: :lessons
   has_many :reviews, through: :bookings
+
+  has_one_attached :photo #cloudinary profile pic
 end

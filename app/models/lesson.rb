@@ -6,5 +6,7 @@ class Lesson < ApplicationRecord
   has_many :users, through: :bookings
   has_many :reviews, through: :bookings
 
+  has_one_attached :photo # cloudinary lesson pic for card
+
   # validates :name, :description, :price, :duration, presence: true
 end
