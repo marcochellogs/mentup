@@ -11,4 +11,4 @@ User.create(email:"marco@notgmail.com", password:"hellonaelle123", name:"marco",
 Category.create(name:"public")
 Lesson.create(user_id:1, name:"speaking in public", description:"we will talk", duration:1, category_id:1)
 Booking.create(date: Date.today, lesson_id:1, user_id:2)
-
+Review.create(title:"Very nice mentor", description:"I learnt a lot", rating:5, booking_id:1)
