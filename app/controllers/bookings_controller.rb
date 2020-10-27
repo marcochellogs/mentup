@@ -1,7 +1,7 @@
 class BookingsController < ApplicationController
   def index
-    @bookings = current_user.lesson.bookings
-    #for each booking booking.review to show your user reviews
+    @lesson = current_user.lesson
+    @bookings = @lesson ? @lesson.bookings : current_user.bookings
   end
 
   def new
@@ -12,7 +12,7 @@ class BookingsController < ApplicationController
     @booking = Booking.new(allowed_params)
     @booking.user = current_user
     if @booking.save
-      redirect_to lesson_path(@booking.lesson_id)
+      redirect_to lesson_path(params[:lesson_id])
     else
       render 'new'
     end
