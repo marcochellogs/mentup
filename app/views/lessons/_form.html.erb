@@ -1,0 +1,17 @@
+<div class="col-6 align-content-center">
+
+<% if current_user.is_mentor %>
+
+  <%= simple_form_for @lesson do |f| %>
+    <%= f.input :name %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :price, as: :integer %>
+    <%= f.input :duration, as: :integer %>
+    <%= f.association :category, as: :select %>
+    <%= f.input :photo, as: :file %>
+    <%= f.button :submit %>
+  <% end %>
+<% else %>
+  <%= link_to 'Become a Mentor!', edit_user_registration_path(current_user) %>
+<% end %>
+</div>

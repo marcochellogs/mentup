@@ -1,2 +1,39 @@
-<h1>Lessons#show</h1>
-<p>Find me in app/views/lessons/show.html.erb</p>
+<h1><%= @lesson.name %></h1>
+
+<% if @lesson.photo.attached? %>
+  <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= cl_image_path @lesson.photo.key, height: 300, width: 400, crop: :fill %>')">
+<% else %>
+  <%# <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('<%= image_path @images.sample, height: 300, width: 400, crop: :fill % >')"> %>
+<% end %>
+<%= @lesson.name %>
+</div>
+
+<% if @user.photo.attached? %>
+  <img src="" alt="Profile img">
+<% else %>
+ <img src="" alt="placeholder">
+<% end %>
+
+<p>Welcome to the public profile of <%= @user.name %> </p>
+<p> About <%= @user.name %>:</p>
+<p> <em> <%= @user.bio %> </em></p> <br> <br>
+
+<p><%= @lesson.description %></p>
+
+<% if current_user == @lesson.user %>
+  <%= link_to 'Edit Lesson', edit_lesson_path(@lesson) %>
+<% else %>
+  <%= link_to 'Book Lesson', new_lesson_booking_path(@lesson) %>
+<% end %>
+
+<% @reviews.each do |review| %>
+  <h3><%= review.title %></h3>
+  <p><%= review.rating %></p>
+  <p><%= review.description %></p>
+<% end %>
+
+<p> These are the dates and times in which this Mentor was already booked: </p>
+<% @bookings.each do |booking| %>
+  <%= booking.date %>
+  <%= 'for ' + booking.lesson.duration.to_s + ' hours'%>
+<% end %>

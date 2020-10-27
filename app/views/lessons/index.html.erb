@@ -1,2 +1,28 @@
 <h1>Lessons#index</h1>
-<p>Find me in app/views/lessons/index.html.erb</p>
+
+<div class="container mt-5">
+  <div class="row">
+  <% @lessons.each do |lesson|%>
+    <div class="col-sm">
+      <div class="card rounded mt-2 mx-auto" style="width: 18rem">
+        <%# if lesson.photo.attached? %>
+          <%# = cl_image_tag drink.photo.key, height: 300, width: 400, crop: :fill %>
+        <%# else %>
+          <%# <img src="<%= @images.sample% >" style="height: 200px; object-fit: cover;" class="card-img-top img-card " alt=<%= drink.name % >> %>
+        <%# end %>
+
+        <% if lesson.user.photo.attached? %>
+          <img src="" alt="Profile img">
+        <% else %>
+         <img src="" alt="placeholder">
+        <% end %>
+
+        <div class="card-body" style="background-color: rgb(236, 226, 208)">
+          <h5 class="card-title"><%= lesson.name %></h5>
+          <%= link_to 'check out ' + lesson.name, lesson_path(lesson), class:'btn btn-success' %>
+        </div>
+      </div>
+    </div>
+  <%end%>
+  </div>
+</div>
