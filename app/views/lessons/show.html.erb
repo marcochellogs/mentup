@@ -19,6 +19,7 @@
 <p> <em> <%= @user.bio %> </em></p> <br> <br>
 
 <p><%= @lesson.description %></p>
+<p><%= @lesson.price %></p>
 
 <% if current_user == @lesson.user %>
   <%= link_to 'Edit Lesson', edit_lesson_path(@lesson) %>

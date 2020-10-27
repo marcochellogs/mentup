@@ -5,8 +5,8 @@
   <%= simple_form_for @lesson do |f| %>
     <%= f.input :name %>
     <%= f.input :description, as: :text %>
-    <%= f.input :price, as: :integer %>
     <%= f.input :duration, as: :integer %>
+    <%= f.input :price, as: :string %>
     <%= f.association :category, as: :select %>
     <%= f.input :photo, as: :file %>
     <%= f.button :submit %>
