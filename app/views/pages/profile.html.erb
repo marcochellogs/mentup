@@ -1,56 +1,53 @@
 <div class="card text-center">
+
   <div class="card-header">
     Welcome to your profile, <%= current_user.name.capitalize %>
   </div>
+
   <div class="card-body">
-
-
-<% if current_user.photo.attached? %>
-  <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
-<% else %>
-  <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill%>')">
-<% end %>
-
-    <h5 class="card-title"><%= current_user.name.capitalize %></h5>
-    <p class="card-text"><%= current_user.email%></p>
-    <label>Biography</label>
-    <p class="card-text"><%= current_user.bio%></p>
-     <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-primary">Update profile</a>
+    <% if current_user.photo.attached? %>
+      <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
+    <% else %>
+      <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill%>')">
+    <% end %>
+        <h5 class="card-title"><%= current_user.name.capitalize %></h5>
+        <p class="card-text"><%= current_user.email%></p>
+        <label>Biography</label>
+        <p class="card-text"><%= current_user.bio%></p>
+        <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-primary">Update profile</a>
+      </div>
   </div>
-</div>
-<%# card my bookings %>
 
-<% @bookings.each do |booking| %>
-<%= booking.lesson.name %>
-<%= booking.date %>
-<% end %>
+  <%# card my bookings %>
+  <% @bookings.each do |booking| %>
+    <%= booking.lesson.name %>
+    <%= booking.date %>
+  <% end %>
 
-
-<% if current_user.is_mentor %>
-<%# card mentor lesson %>
-  <div class="card">
-  <div class="card-header">
-    Your mentor lesson
-  </div>
-  <div class="card-body">
-  <h5 class="card-title"><%= @mentor_lesson.name%></h5>
-  <p class="card-text"><%= @mentor_lesson.description%></p>
-  <p class="card-text"><%= @mentor_lesson.duration%></p>
-  <p class="card-text"><%= @mentor_lesson.price%></p>
-  <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-primary">Update lesson</a>
-  </div>
-  </div>
-  <%# card mentor bookings  %>
-  <% if @mentor_bookings.count == 0 %>
-    <h5>You have 0 bookings</h5>
-  <% else %>
-  <h5>You have <%= @mentor_bookings.count %> bookings:</h5> <%# we need always more than 1 booking as seed %>
-    <% @mentor_bookings.each do |booking| %>
-   <%= booking.date %>
-   <%= booking.user.name %> <%# student's name  %>
+  <% if current_user.is_mentor %>
+  <%# card mentor lesson %>
+    <div class="card">
+      <div class="card-header">
+        Your mentor lesson
+      </div>
+      <div class="card-body">
+        <h5 class="card-title"><%= @mentor_lesson.name%></h5>
+        <p class="card-text"><%= @mentor_lesson.description%></p>
+        <p class="card-text"><%= @mentor_lesson.duration%></p>
+        <p class="card-text"><%= @mentor_lesson.price%></p>
+        <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-primary">Update lesson</a>
+      </div>
+    </div>
+    <%# card mentor bookings  %>
+    <% if @mentor_bookings.count == 0 %>
+      <h5>You have 0 bookings</h5>
+    <% else %>
+      <h5>You have <%= @mentor_bookings.count %> bookings:</h5> <%# we need always more than 1 booking as seed %>
+      <% @mentor_bookings.each do |booking| %>
+        <%= booking.date %>
+        <%= booking.user.name %> <%# student's name  %>
+      <% end %>
     <% end %>
   <% end %>
-<% end %>
 
 <a href="<%= root_path %>" class="btn btn-primary">Home</a>
-
