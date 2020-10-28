@@ -11,7 +11,7 @@
       <%= booking.review.title %>
       <%= booking.review.description %>
       <%= booking.review.rating %>
-    <% elsif current_user == booking.lesson.user %> <%# if you are not the user %>
+    <% elsif current_user == booking.user %> <%# if you are not the user %>
       <%= link_to 'Leave a review', new_booking_review_path(booking)%>
     <% end %>
     <%# if current_user == booking.lesson.user || current_user == booking.user %>
@@ -19,5 +19,5 @@
     <%# end %>
 <% end %>
 
-
+<%= render 'shared/footer' %>
 

@@ -10,7 +10,6 @@
         <%# else %>
           <%# <img src="<%= @images.sample% >" style="height: 200px; object-fit: cover;" class="card-img-top img-card " alt=<%= drink.name % >> %>
         <%# end %>
-
         <% if lesson.user.photo.attached? %>
           <img src="" alt="Profile img">
         <% else %>
@@ -26,3 +25,5 @@
   <%end%>
   </div>
 </div>
+
+<%= render 'shared/footer' %>
