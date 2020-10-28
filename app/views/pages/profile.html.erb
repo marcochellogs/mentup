@@ -19,9 +19,13 @@
   </div>
 
   <%# card my bookings %>
+  <% if @bookings.nil? %>
+  <%= You have 0 bookings %>
+  <% else %>
   <% @bookings.each do |booking| %>
     <%= booking.lesson.name %>
     <%= booking.date %>
+  <% end %>
   <% end %>
 
   <% if current_user.is_mentor %>
@@ -39,8 +43,6 @@
         <p class="card-text"><%= @mentor_lesson.duration%></p>
         <p class="card-text"><%= @mentor_lesson.price%></p>
         <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-primary">Update lesson</a>
-
-
       </div>
     </div>
     <% end %>
