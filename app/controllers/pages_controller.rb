@@ -10,9 +10,10 @@ class PagesController < ApplicationController
     @lessons = current_user.lessons # lessons booked as a user
     if current_user.is_mentor
       @mentor_lesson = current_user.lesson # your lesson as a mentor
-      @mentor_bookings = @mentor_lesson.bookings # mentor bookings of your lesson
+      if @mentor_bookings != nil
+        @mentor_bookings = @mentor_lesson.bookings # mentor bookings of your lesson
+      end
     end
-  end
+end
 end
 
-# User has one picture to upload as profile pic

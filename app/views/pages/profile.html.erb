@@ -17,15 +17,22 @@
         <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-primary">Update profile</a>
       </div>
   </div>
-
+</div>
   <%# card my bookings %>
+  <% if @bookings.nil? %>
+  <p>You have 0 bookings</p>
+  <% else %>
   <% @bookings.each do |booking| %>
     <%= booking.lesson.name %>
     <%= booking.date %>
   <% end %>
+  <% end %>
 
   <% if current_user.is_mentor %>
+  <% if @mentor_lesson.nil? %>
+    <%= link_to 'Create your Lesson', new_lesson_path  %>
   <%# card mentor lesson %>
+  <% else %>
     <div class="card">
       <div class="card-header">
         Your mentor lesson
@@ -38,16 +45,17 @@
         <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-primary">Update lesson</a>
       </div>
     </div>
+    <% end %>
     <%# card mentor bookings  %>
-    <% if @mentor_bookings.count == 0 %>
+    <% if @mentor_bookings.nil? %>
       <h5>You have 0 bookings</h5>
     <% else %>
       <h5>You have <%= @mentor_bookings.count %> bookings:</h5> <%# we need always more than 1 booking as seed %>
       <% @mentor_bookings.each do |booking| %>
         <%= booking.date %>
         <%= booking.user.name %> <%# student's name  %>
-      <% end %>
     <% end %>
+  <% end %>
   <% end %>
 
 <a href="<%= root_path %>" class="btn btn-primary">Home</a>
