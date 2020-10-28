@@ -1,9 +1,11 @@
-<%= link_to "Home",  %>
-<%= link_to "Lessons",  %>
-<%= link_to "Bookings",  %>
+<div class="footer d-flex py-5">
+<%= link_to "Home", root_path, class: "text-dark mx-2"  %>
+<%= link_to "Lessons", lessons_path, class: "text-dark mx-2" %>
+<%= link_to "Bookings", bookings_path, class: "text-dark mx-2" %>
 
 <% if current_user.lesson %>
-<%= link_to "Your lesson",  %>
+<%= link_to "Your lesson", lesson_path(current_user), class: "text-dark mx-2"  %>
 <% else %>
-<%= link_to "Create lesson",  %>
+<%= link_to "Create lesson", new_lesson_path, class: "text-dark mx-2" %>
 <% end %>
+</div>
