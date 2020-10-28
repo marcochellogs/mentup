@@ -1,0 +1,9 @@
+<%= link_to "Home",  %>
+<%= link_to "Lessons",  %>
+<%= link_to "Bookings",  %>
+
+<% if current_user.lesson %>
+<%= link_to "Your lesson",  %>
+<% else %>
+<%= link_to "Create lesson",  %>
+<% end %>
