@@ -17,10 +17,10 @@
         <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-primary">Update profile</a>
       </div>
   </div>
-
+</div>
   <%# card my bookings %>
   <% if @bookings.nil? %>
-  <%= You have 0 bookings %>
+  <p>You have 0 bookings</p>
   <% else %>
   <% @bookings.each do |booking| %>
     <%= booking.lesson.name %>
