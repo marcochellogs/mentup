@@ -7,10 +7,7 @@
 <% end %>
 <%= @lesson.name %>
 </div>
-<br>
-<% if current_user == @lesson.user %>
 <%= link_to "delete", lesson_path(@lesson), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
-<% end %>
 <% if @user.photo.attached? %>
   <img src="" alt="Profile img">
 <% else %>
