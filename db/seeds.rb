@@ -34,12 +34,55 @@ User.create(email:"studentnob@gmail.com", password:password, name:"Soraya Studen
 User.create(email:"student1nob@gmail.com", password:password, name:"Fraco Student", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success", is_mentor:false)
 User.create(email:"student2nob@gmail.com", password:password, name:"Antonio Student", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success", is_mentor:false)
 
-# 4 CATEGORIES with picture
-Category.create(name:"Public Speaking")
-Category.create(name:"Finance")
-Category.create(name:"Startup and Innovation")
-Category.create(name:"Self Help")
-Category.create(name:"Languages")
+
+# 5 CATEGORIES with picture
+category = Category.create(name:"Public Speaking")
+file_path = File.join(Rails.root, "/app/assets/images/category-public.jpg")
+category.photo.attach(io: File.open(file_path), filename: "public.jpg")
+
+category = Category.create(name:"Finance")
+file_path = File.join(Rails.root, "/app/assets/images/category-finance.jpg")
+category.photo.attach(io: File.open(file_path), filename: "finance.jpg")
+
+category = Category.create(name:"Startup and Innovation")
+file_path = File.join(Rails.root, "/app/assets/images/category-startup.jpg")
+category.photo.attach(io: File.open(file_path), filename: "startup.jpg")
+
+category = Category.create(name:"Self Help")
+file_path = File.join(Rails.root, "/app/assets/images/category-selfhelp.jpg")
+category.photo.attach(io: File.open(file_path), filename: "selfhelp.jpg")
+
+category = Category.create(name:"Languages")
+file_path = File.join(Rails.root, "/app/assets/images/category-language.jpg")
+category.photo.attach(io: File.open(file_path), filename: "language.jpg")
+
+def assign_pic_to_users
+  #take all the users, if they are mentors
+  #user.is_mentor = true or false
+  User.all.each do |user|
+    if user.is_mentor
+      #image mentor
+      file_path = File.join(Rails.root, "/app/assets/images/teacher.png")
+      user.photo.attach(io: File.open(file_path), filename: "teacher")
+    else
+      #image student
+      file_path = File.join(Rails.root, "/app/assets/images/student.jpg")
+      user.photo.attach(io: File.open(file_path), filename: "student")
+    end
+  end
+end
+
+assign_pic_to_users
+
+
+def assign_pic_to_lessons
+  #take all the users, if they are students
+  Lesson.all.each do |lesson|
+    file_path = File.join(Rails.root, "/app/assets/images/lesson.jpg")
+    lesson.photo.attach(io: File.open(file_path), filename: "lesson")
+  end
+end
+
 
 # 6 LESSONS
 Lesson.create(user_id:1, name:"Public speaking for beginners", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job", duration:1, price:"40", category_id:1)
@@ -48,6 +91,8 @@ Lesson.create(user_id:3, name:"Launching your startup!", description:"This lesso
 Lesson.create(user_id:4, name:"How to gain confidence in your skills", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job", duration:1, price:"110", category_id:4)
 Lesson.create(user_id:5, name:"Learn Italian in 1 month", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job", duration:3, price:"400", category_id:5)
 Lesson.create(user_id:6, name:"Mastering public speaking", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job", duration:1, price:"80", category_id:1)
+
+assign_pic_to_lessons
 
 # Many BOOKINGS
 Booking.create(date: Date.today, lesson_id:1, user_id:9)
