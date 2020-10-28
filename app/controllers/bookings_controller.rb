@@ -1,6 +1,10 @@
 class BookingsController < ApplicationController
   def index
-  @bookings = current_user.bookings
+  @mentor_bookings = current_user.bookings
+  @student_bookings = current_user.lesson.bookings
+  @bookings = []
+  @student_bookings.each { |booking| @bookings << booking }
+  @mentor_bookings.each { |booking| @bookings << booking }
   end
 
   def new

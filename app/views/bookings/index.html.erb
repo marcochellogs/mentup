@@ -6,17 +6,18 @@
 
     <%= booking.date %>
     <%= booking.user.name %><br>
+    <%= booking.lesson.name %><br> <%#lesson's name %>
     <% if booking.review != nil %>
-      <%= booking.lesson.name %><br> <%#lesson's name %>
       <%= booking.review.title %>
       <%= booking.review.description %>
       <%= booking.review.rating %>
-    <% elsif current_user != booking.lesson.user %> <%# if you are not the user %>
+    <% elsif current_user == booking.lesson.user %> <%# if you are not the user %>
       <%= link_to 'Leave a review', new_booking_review_path(booking)%>
     <% end %>
-    <% if current_user == booking.lesson.user || current_user == booking.user %>
+    <%# if current_user == booking.lesson.user || current_user == booking.user %>
       <%= link_to 'Delete Booking', booking_path(booking), method: :delete,data: { confirm: "Are you sure you want to cancel this booking?" } %>
-    <% end %>
+    <%# end %>
 <% end %>
+
 
 

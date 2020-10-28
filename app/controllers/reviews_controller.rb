@@ -9,7 +9,7 @@ class ReviewsController < ApplicationController
     @review = Review.new(allowed_params)
     @review.booking_id = params[:booking_id]
     if @review.save
-      redirect_to profile_path(@booking.user)
+      redirect_to bookings_path
     else
       render 'new'
     end
