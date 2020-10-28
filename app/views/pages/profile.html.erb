@@ -1,3 +1,4 @@
+<div class="container">
 <div class="card text-center">
 
   <div class="card-header">
@@ -8,12 +9,15 @@
     <% if current_user.photo.attached? %>
       <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
     <% else %>
-      <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill%>')">
+      <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill')">
     <% end %>
         <h5 class="card-title"><%= current_user.name.capitalize %></h5>
         <p class="card-text"><%= current_user.email%></p>
         <label>Biography</label>
         <p class="card-text"><%= current_user.bio%></p>
+        <% if current_user.is_mentor %>
+        <p class="card-text">You are a mentor</p>
+        <% end %>
         <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-primary">Update profile</a>
       </div>
   </div>
@@ -58,4 +62,6 @@
   <% end %>
   <% end %>
 
-<a href="<%= root_path %>" class="btn btn-primary">Home</a>
+
+<%= render 'shared/footer' %>
+</div>

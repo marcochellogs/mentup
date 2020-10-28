@@ -1,2 +1,9 @@
-<h1>Reviews#new</h1>
-<p>Find me in app/views/reviews/new.html.erb</p>
+<div class="col-6 align-content-center">
+
+  <%= simple_form_for [@booking, @review] do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description, as: :text %>
+    <%= f.input :rating, as: :integer %>
+    <%= f.button :submit %>
+  <% end %>
+</div>

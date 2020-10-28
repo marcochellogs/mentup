@@ -7,7 +7,6 @@
 <% end %>
 <%= @lesson.name %>
 </div>
-<%= link_to "delete", lesson_path(@lesson), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
 <% if @user.photo.attached? %>
   <img src="" alt="Profile img">
 <% else %>
@@ -23,6 +22,7 @@
 
 <% if current_user == @lesson.user %>
   <%= link_to 'Edit Lesson', edit_lesson_path(@lesson) %>
+  <%= link_to "Delete lesson", lesson_path(@lesson), method: :delete, data: { confirm: 'Are you certain you want to delete this?' } %>
 <% else %>
   <%= link_to 'Book Lesson', new_lesson_booking_path(@lesson) %>
 <% end %>
@@ -42,3 +42,4 @@
   <%= booking.date %>
   <%= 'for ' + booking.lesson.duration.to_s + ' hours'%>
 <% end %>
+<%= render 'shared/footer' %>
