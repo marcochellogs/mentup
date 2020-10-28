@@ -1,7 +1,6 @@
 class BookingsController < ApplicationController
   def index
-    @lesson = current_user.lesson
-    @bookings = @lesson ? @lesson.bookings : current_user.bookings
+  @bookings = current_user.bookings
   end
 
   def new
@@ -30,6 +29,6 @@ class BookingsController < ApplicationController
   private
 
   def allowed_params
-    params.require(:booking).permit(:date, :lesson_id, :user_id)
+    params.require(:booking).permit(:date)
   end
 end
