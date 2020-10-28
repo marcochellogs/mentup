@@ -1,8 +1,29 @@
+
+.container.form-container {
+  background-color: white !important;
+  }
+.form-header {
+  border-bottom: 5px solid #E0E0E0;
+  border-width: medium;
+}
+.form-title {
+  font-size: 40px;
+}
+.simple-form-container {
+  width: 400px;
+
+}
 .form-control {
-  border-color: grey !important;
+  border-color: black !important;
   border-radius: 5px;
 }
-.btn-form {
+.form-btn {
   background-color: green;
   border-radius: 5px;
+  width: 100%;
 }
+
+.form-actions {
+
+}
+.text-area
