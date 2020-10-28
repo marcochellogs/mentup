@@ -27,7 +27,9 @@
   <%= link_to 'Book Lesson', new_lesson_booking_path(@lesson) %>
 <% end %>
 
-<% if @reviews != nil %>
+<% if @reviews.nil? %>
+<h5>Missing link to go on new review</h5>
+<% else %>
 <% @reviews.each do |review| %>
   <h3><%= review.title %></h3>
   <p><%= review.rating %></p>

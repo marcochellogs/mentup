@@ -45,15 +45,13 @@
     </div>
     <% end %>
     <%# card mentor bookings  %>
-    <% if @mentor_bookings != nil %>
-    <% if @mentor_bookings.count == 0 %>
+    <% if @mentor_bookings.nil? %>
       <h5>You have 0 bookings</h5>
     <% else %>
       <h5>You have <%= @mentor_bookings.count %> bookings:</h5> <%# we need always more than 1 booking as seed %>
       <% @mentor_bookings.each do |booking| %>
         <%= booking.date %>
         <%= booking.user.name %> <%# student's name  %>
-      <% end %>
     <% end %>
   <% end %>
   <% end %>
