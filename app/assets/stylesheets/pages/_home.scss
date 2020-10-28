@@ -1,1 +1,68 @@
-// Specific CSS for your home-page
+.container-fluid {
+  background-image: url('https://images.pexels.com/photos/1144687/pexels-photo-1144687.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+  position: fixed;
+  background-size: cover;
+  min-width: 100%;
+  min-height: 100%;
+  left: 0;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.search-form-control {
+  position: relative;
+}
+
+.search-form-control .btn {
+  background-color: none;
+  padding: 15px 32px;
+  text-align: center;
+  display: inline-block;
+  right: 50%;
+  height: 3.0rem;
+  border: 1px solid #E7E7E7;
+  border-radius: 2px;
+  text-align: center;
+  font-size: 15px;
+  padding: 16px;
+  position: absolute;
+  bottom: 50px;
+  right: 540px;
+  top: 300px;
+  color: white;
+}
+
+.search-form-control .form-control {
+  height: 3.0rem;
+  position: relative;
+  width: 40%;
+  left: 5%;
+  top: 300px;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  border: 1px solid #E7E7E7;
+}
+
+.search-form-control .form-control:focus {
+  border: 1px solid #1EDD88;
+  outline: none !important;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+}
+
+.container-quote {
+  position: relative;
+  background-position: center;
+  background-color: none;
+  top: 280px;
+  box-sizing: border-box;
+  left: 5%;
+  width: 40%;
+  height: 90px;
+}
+
+.container-quote h1 {
+  font-size: 30px;
+  color: white;
+  font: bold;
+
+
+}
