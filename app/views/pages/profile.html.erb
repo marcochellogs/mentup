@@ -9,7 +9,7 @@
     <% if current_user.photo.attached? %>
       <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
     <% else %>
-      <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill%>')">
+      <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill')">
     <% end %>
         <h5 class="card-title"><%= current_user.name.capitalize %></h5>
         <p class="card-text"><%= current_user.email%></p>
