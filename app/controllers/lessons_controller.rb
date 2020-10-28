@@ -39,6 +39,7 @@ class LessonsController < ApplicationController
 
   def destroy
     @lesson.destroy
+    redirect_to profile_path(current_user)
   end
 
   private
