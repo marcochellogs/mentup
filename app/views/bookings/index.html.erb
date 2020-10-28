@@ -5,18 +5,19 @@
   <% @bookings.each do |booking| %>
 
     <%= booking.date %>
-    <%= booking.user.name %>
+    <%= booking.user.name %><br>
+    <%= booking.lesson.name %><br> <%#lesson's name %>
     <% if booking.review != nil %>
       <%= booking.review.title %>
       <%= booking.review.description %>
-    <% elsif current_user != booking.lesson.user %> <%# if you are not the user %>
+      <%= booking.review.rating %>
+    <% elsif current_user == booking.lesson.user %> <%# if you are not the user %>
       <%= link_to 'Leave a review', new_booking_review_path(booking)%>
     <% end %>
-    <% if current_user == booking.lesson.user || current_user == booking.user %>
-      <%= link_to 'Delete Booking', booking_path(booking), method: :delete %>
-    <% end %>
-
-  <%# end %>
+    <%# if current_user == booking.lesson.user || current_user == booking.user %>
+      <%= link_to 'Delete Booking', booking_path(booking), method: :delete,data: { confirm: "Are you sure you want to cancel this booking?" } %>
+    <%# end %>
 <% end %>
+
 
 
