@@ -1,10 +1,15 @@
 class BookingsController < ApplicationController
   def index
-  @mentor_bookings = current_user.bookings
-  @student_bookings = current_user.lesson.bookings
-  @bookings = []
-  @student_bookings.each { |booking| @bookings << booking }
-  @mentor_bookings.each { |booking| @bookings << booking }
+    @bookings = []
+    if current_user.bookings != nil
+      @mentor_bookings = current_user.bookings
+      @mentor_bookings.each { |booking| @bookings << booking }
+    end
+
+    if current_user.lesson != nil
+      @student_bookings = current_user.lesson.bookings
+      @student_bookings.each { |booking| @bookings << booking }
+    end
   end
 
   def new
