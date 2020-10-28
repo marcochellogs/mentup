@@ -63,7 +63,7 @@ def assign_pic_to_users
     if user.is_mentor
       #image mentor
       file_path = File.join(Rails.root, "/app/assets/images/teacher.png")
-      user.photo.attach(io: File.open(file_path), filename: "mentor")
+      user.photo.attach(io: File.open(file_path), filename: "teacher")
     else
       #image student
       file_path = File.join(Rails.root, "/app/assets/images/student.jpg")
