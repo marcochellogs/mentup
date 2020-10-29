@@ -22,9 +22,15 @@ class BookingsController < ApplicationController
     @booking = Booking.new(allowed_params)
     @booking.lesson_id = params[:lesson_id]
     @booking.user = current_user
-    if @booking.save
-      redirect_to lesson_path(params[:lesson_id])
+    if is_booked?(@booking)
+      if @booking.save
+        redirect_to lesson_path(params[:lesson_id])
+        flash[:alert] = "Booking successful"
+      else
+        render 'new'
+      end
     else
+      flash[:notice] = "The Mentor is already booked for this time"
       render 'new'
     end
   end
@@ -40,4 +46,11 @@ class BookingsController < ApplicationController
   def allowed_params
     params.require(:booking).permit(:date)
   end
+
+  def is_booked?(booking)
+    booking.lesson.bookings.all? do |check|
+      booking.end_date < check.date || booking.date > check.end_date
+    end
+  end
+
 end

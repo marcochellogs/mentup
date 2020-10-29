@@ -19,7 +19,7 @@
   border-width: 1px;
   font-weight: bold;
   opacity: 1;
-  transition: opacity 0.3s ease;
+  transition: 0.3s ease;
   display: flex;
   justify-content: center;
 }
@@ -34,7 +34,12 @@
 }
 
 .transparent   {
+  transition: 0.3s ease;
   background-color: transparent !important;
+}
+
+.transparent:hover {
+  background-color: white !important;
 }
 
 .sign-in-button {
