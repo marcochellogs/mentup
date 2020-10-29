@@ -27,7 +27,11 @@
         <%# end %>
 
         <div class="card-body">
+          <% if lesson.photo.attached? %>
             <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url(<%= cl_image_path lesson.photo.key %>); height: 300; width: 400; crop: :fill">
+          <% else %>
+            <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill'); height: 300; width: 400; crop: :fill">
+          <% end %>
           <p class="card-title text-white"><%= lesson.name %><p>
             </div>
           <div class="card-photos">
