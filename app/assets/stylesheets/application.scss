@@ -1,4 +1,4 @@
-require jquery.ui.datepicker
+/*=require bootstrap-datepicker*/
 // Graphical variables
 @import "config/fonts";
 @import "config/colors";
@@ -8,10 +8,12 @@ require jquery.ui.datepicker
 @import "bootstrap/scss/bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+@import "flatpickr/dist/flatpickr";
 
 // Your CSS partials
 @import "components/index";
 @import "pages/index";
+@import "flatpickr/dist/themes/material_green";
 
 body {
   background-color: white !important;

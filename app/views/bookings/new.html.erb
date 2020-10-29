@@ -2,8 +2,8 @@
 
 <h1>Bookings new</h1>
 <div class="col-6 align-content-center">
-  <%= simple_form_for [@lesson, @booking] do |f| %>
-    <%= f.input :date, :as :datepicker %>
-    <%= f.button :submit, class: "btn" %>
-  <% end %>
+      <%= simple_form_for  [@lesson, @booking] do |f| %>
+      <%= f.input :date, as: :string, required: true, input_html: {class: "datepicker"} %>
+      <%= f.button :submit, "Go", class: "btn" %>
+    <% end %>
 </div>

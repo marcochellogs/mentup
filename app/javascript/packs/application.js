@@ -7,21 +7,6 @@ require("@rails/ujs").start()
 require("turbolinks").start()
 require("@rails/activestorage").start()
 require("channels")
-require jquery.ui.all
-require jquery.ui.datepicker-en
-require jquery.ui.datepicker-es
-require jquery.ui.datepicker-fr
-
-$("input.datepicker").each(function(input) {
-  $(this).datepicker({
-    dateFormat: "yy-mm-dd",
-    altField: $(this).next()
-  })
-
-  // If you use i18n-js you can set the locale like that
-  $(this).datepicker("option", $.datepicker.regional[I18n.currentLocale()]);
-})
-
 // Uncomment to copy all static images under ../images to the output folder and reference
 // them with the image_pack_tag helper in views (e.g <%= image_pack_tag 'rails.png' %>)
 // or the `imagePath` JavaScript helper below.
@@ -37,16 +22,23 @@ $("input.datepicker").each(function(input) {
 
 // External imports
 import "bootstrap";
+import "../plugins/flatpickr";
+//= require bootstrap-datepicker
+//= require bootstrap-datepicker/core
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.es.js
+//= require bootstrap-datepicker/locales/bootstrap-datepicker.fr.js
 
 // Internal imports, e.g:
 // import { initSelect2 } from '../components/init_select2';
 import { navBar } from '../component/navbar';
+import { datePicker } from '../plugins/flatpickr';
 
 
 document.addEventListener('turbolinks:load', () => {
   if (document.querySelector('.transparent')) {
     navBar()
   }
+  datePicker();
   // Call your functions here, e.g:
   // initSelect2();
 });
