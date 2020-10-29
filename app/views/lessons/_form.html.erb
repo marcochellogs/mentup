@@ -1,17 +1,41 @@
 <div class="col-6 align-content-center">
 
 <% if current_user.is_mentor %>
-
-  <%= simple_form_for @lesson do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :duration, as: :integer %>
-    <%= f.input :price, as: :string %>
-    <%= f.association :category, as: :select %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
-  <% end %>
+  <div class="book">
+    <h5 class="form-title"><h1>Create your lesson!</h1></h5>
+  </div>
+    <%= simple_form_for @lesson do |f| %>
+      <%= f.input :name,
+                  placeholder: 'Name your lesson',
+                  label: false %>
+      <%= f.input :description,
+                  as: :text,
+                  placeholder: 'Describe your lesson',
+                  label: false %>
+      <%= f.input :duration,
+                  placeholder: 'How long is your lesson going to last?',
+                  label: false,
+                   as: :integer %>
+      <%= f.input :price,
+                  placeholder: 'What is the price?',
+                  label: false,
+                  as: :string %>
+      <%= f.association :category,
+                        placeholder: 'Pick a category for your lesson',
+                        label: false,
+                        as: :select %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "btn form-btn" %>
+    <% end %>
 <% else %>
-  <%= link_to 'Become a Mentor!', edit_user_registration_path(current_user) %>
+  <div class="book">
+    <h5 class="form-title"><h1>Start mentoring today!</h1></h5>
+  </div>
+  <div class="container">
+  <h5 class="booking-name">Are you really good at something?<br> Share your best skill!</h5>
+  <p class="booking-name">Becoming a mentor is the fastest way share your knowledge and capabilities.</p>
+  <p class="booking-name">Manage dinamically your lesson and your bookings on Mentup.</p>
+  <%= link_to 'Become a Mentor', edit_user_registration_path(current_user), class: "btn form-btn" %>
+  </div>
 <% end %>
 </div>
