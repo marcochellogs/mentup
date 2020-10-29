@@ -36,10 +36,10 @@
         </li>
       <% else %>
       <li class="nav-item">
-          <%= link_to "Create a Lesson", new_user_session_path, class: "nav-link text-white" %>
+          <%= link_to "Create a Lesson", new_user_session_path, class: "nav-link text-white", id: "change-color" %>
         </li>
         <li class="nav-item">
-        <%= link_to "Sign In", new_user_session_path, class: "nav-link" "btn btn-ghost text-white sign-in-button" %>
+        <%= link_to "Sign In", new_user_session_path, class: "nav-link" "btn btn-ghost text-white sign-in-button", id: "change-color" %>
         </li>
       <% end %>
     </ul>
