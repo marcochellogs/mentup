@@ -52,5 +52,4 @@ class BookingsController < ApplicationController
       booking.end_date < check.date || booking.date > check.end_date
     end
   end
-
 end
