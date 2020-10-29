@@ -17,7 +17,6 @@ class LessonsController < ApplicationController
   end
 
   def create
-    raise
     @lesson = Lesson.new(params_allowed)
     @lesson.user = current_user
     if @lesson.save
