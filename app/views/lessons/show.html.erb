@@ -31,7 +31,7 @@
 
       <div class="containter-reviews border rounded-sm flex-grow-1">
         <% if @reviews.nil? %>
-            <h5>Missing link to go on new review</h5>
+            <h5>There are no reviews</h5>
           <% else %>
             <% @reviews.each do |review| %>
               <h3><%= review.title %></h3>
