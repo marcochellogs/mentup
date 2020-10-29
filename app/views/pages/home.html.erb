@@ -1,15 +1,16 @@
-<div class="container-fluid c-fluid">
+<div class="container-fluid c-fluid" style="height: 100vh;">
 
   <%= render 'shared/navbar_transparent' %>
 
   <div class="d-flex flex-column justify-content-center ml-5" id="home-mid">
 
     <div class="text-shadow">
-    <h1 class="text-white">MentUp</h1>
+    <%= image_tag "mentup-logo.png", style:'width: 17rem;'%>
+
     </div>
 
     <div class="container-quote text-shadow">
-      <h1>Learning is a treasure <br> that follows its <b>master</b> everywhere. </h1>
+      <h1>Knowledge is a treasure <br> that follows its <b>master</b> everywhere. </h1>
     </div>
 
     <div>
@@ -19,7 +20,7 @@
         <%= text_field_tag :query,
         params[:query],
         class: "form-control search",
-        placeholder: "Find a lesson" %>
+        placeholder: "Find a lesson, a skill or a mentor.." %>
         <%= submit_tag "Search", class: "btn btn-flat" %>
       </div>
       <% end %>
@@ -27,9 +28,18 @@
     </div>
 
     <%= render 'shared/footerhome' %>
-
   </div>
 </div>
 
+<div style="height: 50vh;">
+  <div class="text-shadow">
+    <%= image_tag "mentup-logo.png", style:'width: 17rem;'%>
+
+    </div>
+
+    <div class="container-quote text-shadow">
+      <h1>Knowledge is a treasure <br> that follows its <b>master</b> everywhere. </h1>
+    </div>
 
 
+</div>
