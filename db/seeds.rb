@@ -37,24 +37,24 @@ User.create(email:"student2nob@gmail.com", password:password, name:"Antonio Stud
 
 # 5 CATEGORIES with picture
 category = Category.create(name:"Public Speaking")
-# file_path = File.join(Rails.root, "/app/assets/images/category-public.jpg")
-# category.photo.attach(io: File.open(file_path), filename: "public.jpg")
+file_path = File.join(Rails.root, "/app/assets/images/category-public.jpg")
+category.photo.attach(io: File.open(file_path), filename: "public.jpg")
 
 category = Category.create(name:"Finance")
-# file_path = File.join(Rails.root, "/app/assets/images/category-finance.jpg")
-# category.photo.attach(io: File.open(file_path), filename: "finance.jpg")
+file_path = File.join(Rails.root, "/app/assets/images/category-finance.jpg")
+category.photo.attach(io: File.open(file_path), filename: "finance.jpg")
 
 category = Category.create(name:"Startup and Innovation")
-# file_path = File.join(Rails.root, "/app/assets/images/category-startup.jpg")
-# category.photo.attach(io: File.open(file_path), filename: "startup.jpg")
+file_path = File.join(Rails.root, "/app/assets/images/category-startup.jpg")
+category.photo.attach(io: File.open(file_path), filename: "startup.jpg")
 
 category = Category.create(name:"Self Help")
-# file_path = File.join(Rails.root, "/app/assets/images/category-selfhelp.jpg")
-# category.photo.attach(io: File.open(file_path), filename: "selfhelp.jpg")
+file_path = File.join(Rails.root, "/app/assets/images/category-selfhelp.jpg")
+category.photo.attach(io: File.open(file_path), filename: "selfhelp.jpg")
 
 category = Category.create(name:"Languages")
-# file_path = File.join(Rails.root, "/app/assets/images/category-language.jpg")
-# category.photo.attach(io: File.open(file_path), filename: "language.jpg")
+file_path = File.join(Rails.root, "/app/assets/images/category-language.jpg")
+category.photo.attach(io: File.open(file_path), filename: "language.jpg")
 
 def assign_pic_to_users
   #take all the users, if they are mentors
@@ -72,7 +72,7 @@ def assign_pic_to_users
   end
 end
 
-# assign_pic_to_users
+assign_pic_to_users
 
 
 def assign_pic_to_lessons
@@ -92,7 +92,7 @@ Lesson.create(user_id:4, name:"How to gain confidence in your skills", descripti
 Lesson.create(user_id:5, name:"Learn Italian in 1 month", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job", duration:3, price:"400", category_id:5)
 Lesson.create(user_id:6, name:"Mastering public speaking", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job", duration:1, price:"80", category_id:1)
 
-# assign_pic_to_lessons
+assign_pic_to_lessons
 
 # Many BOOKINGS
 Booking.create(date: DateTime.now, lesson_id:1, user_id:9)
