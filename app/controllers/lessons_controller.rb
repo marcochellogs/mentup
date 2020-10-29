@@ -3,7 +3,7 @@ class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
 
   def index
-    @lessons = Lesson.all
+    @lessons = params[:query].present? ? Lesson.search_by_name_and_description(params[:query]) : Lesson.all
   end
 
   def show
