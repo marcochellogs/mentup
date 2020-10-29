@@ -1,7 +1,9 @@
+
+
 <h1>Bookings new</h1>
 <div class="col-6 align-content-center">
   <%= simple_form_for [@lesson, @booking] do |f| %>
-    <%= f.input :date %>
+    <%= f.input :date, :as :datepicker %>
     <%= f.button :submit, class: "btn" %>
   <% end %>
 </div>
