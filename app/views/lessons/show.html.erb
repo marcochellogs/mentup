@@ -12,27 +12,18 @@
         <h3><%= @user.name %></h3>
       </div>
 
-      <div class="border-bottom mb-4">
+      <div>
         <div class="border w-90 mx-auto mb-4">
           <p> <em> <%= @user.bio %> </em></p> <br> <br>
         </div>
-      </div>
-
-      <div class="border-bottom mb-4">
-        <p></p>
-        <p>ciaociaociao</p>
-        <p>ciao</p>
-      </div>
-
-      <div>
-      <p><%= @lesson.price %></p>
       </div>
     </div>
 
     <div class="container-center col-4 text-center d-flex flex-column">
 
       <div class="container-pictures border rounded-sm flex-grow-1 mh-25">
-        <p>hello</p>
+        <p>Lesson</p>
+        <p><%= @lesson.price %></p>
       </div>
 
       <div class="border-bottom flex-grow-2" style="height: 30px; margin-bottom: 30px">
@@ -55,11 +46,7 @@
 
     <div class="container-right border rounded p-3 col-3 text-center mr-4">
 
-      <div class="container-lesson border-bottom rounded" style="margin-top: 80px; margin-bottom: 50px;">
-        <p>hellohellohello</p>
-      </div>
-
-      <div class="container-booker border-bottom" style="margin-top: 80px; margin-bottom: 80px;" >
+      <div class="container-booker">
         <p> These are the dates and times in which this Mentor was already booked: </p>
         <% @bookings.each do |booking| %>
           <%= booking.date %>
