@@ -23,6 +23,8 @@ gem 'jbuilder', '~> 2.7'
 # gem 'bcrypt', '~> 3.1.7'
 gem 'devise'
 gem 'pg_search', '~> 2.3.0'
+gem "simple_calendar", "~> 2.0"
+gem 'bootstrap-datepicker-rails'
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
 

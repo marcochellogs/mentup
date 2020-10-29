@@ -1,0 +1,37 @@
+ <form>
+          <div class="col-6 align-content-center">
+            <div class="form-inputs">
+            <div class="form-group">
+              <h4 class="form-control booking">
+                <p class="booking-title">You want to book:</p>
+                <p class="booking-name"><%= @lesson.name %></p>
+                <p class="booking-title">Lesson's mentor:</p>
+                <p class="booking-name"><%= @lesson.user.name %></p>
+              </h4>
+            </div>
+            <div class="form-group">
+              <%= simple_form_for  [@lesson, @booking] do |f| %>
+              <%= f.input :date,
+                          as: :string,
+                          placeholder: 'Click here to choose a date',
+                          label: false,
+                          required: true,
+                          input_html: {class: "datepicker form-control"} %>
+            </div>
+            <div class="form-group">
+              <%= f.button :submit, "Book", class: "btn form-btn" %>
+            </div>
+            <% end %>
+          </div>
+        </div>
+      </form>
+
+
+ <div class="form-img float-right col-6">
+        <h4>Check out who booked your same lesson!</h4>
+        <% @lesson.bookings.each do |booking| %>
+          <div class="form-img-item">
+            <p><%= booking.user.name %> : <%= booking.date.to_time.strftime('%A, %d %b %Y %l:%M %p') %></p>
+          </div>
+        <% end %>
+      </div>

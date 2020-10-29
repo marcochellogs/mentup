@@ -10,7 +10,9 @@
     <% if booking.review != nil %>
       <%= booking.review.title %>
       <%= booking.review.description %>
-      <%= booking.review.rating %>
+      <% booking.review.rating.times do %>
+      <i class="fas fa-star text-warning"></i>
+      <% end %>
     <% elsif current_user == booking.user %> <%# if you are not the user %>
       <%= link_to 'Leave a review', new_booking_review_path(booking)%>
     <% end %>
