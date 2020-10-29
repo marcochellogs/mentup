@@ -1,3 +1,13 @@
+.btn-forget {
+  color: $button-green;
+  padding: 0 20%;
+  margin: 0 2%;
+}
+.btn-forget:hover {
+  color: orange;
+  text-decoration: none;
+}
+
 .form-name {
   color: $button-green;
 }
