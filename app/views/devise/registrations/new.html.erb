@@ -2,76 +2,81 @@
   <div class="container form-header float-left p-3 m-3">
     <h5 class="form-title">Hello, let's create your profile!</h5>
   </div>
-  <div class="container simple-form-container float-left">
-    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-    <%= f.error_notification %>
-  <form>
-  <div class="form-inputs">
-    <div class="form-group">
-      <%= f.input :email,
-                  placeholder: 'Email: ex. user@domain.com',
-                  label: false,
-                  required: true,
-                  autofocus: true,
-                  input_html: { autocomplete: "email" },
-                  class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.input :name,
-                  placeholder: 'Name: ex. Albert Einstein',
-                  label: false,
-                  required: true,
-                  input_html: { autocomplete: "name" },
-                  class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.input :bio,
-                  placeholder: 'Biography',
-                  as: :text,
-                  label: false,
-                  input_html: { autocomplete: "bio" },
-                  class: "form-control" %>
-    </div>
-    <div class="form-check">
-      <%= f.input :is_mentor,
-                  :label => 'Become a mentor',
-                  as: :boolean,
-                  input_html: { autocomplete: "Do you want to be a mentor?" },
-                  class: "form-check-input" %>
-    </div>
-    <div class="form-group">
-     <%= f.input :password,
-                  placeholder: 'Password',
-                  label: false,
-                  required: true,
-                  hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                  input_html: { autocomplete: "new-password" },
-                  class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.input :password_confirmation,
-                  placeholder: 'Password confirmation',
-                  label: false,
-                  required: true,
-                  input_html: { autocomplete: "new-password" },
-                  class: "form-control" %>
-    </div>
-    <div class="form-group">
-      <%= f.input :photo,
-                  :label => 'Upload your profile picture',
-                  as: :file,
-                  class: "form-control-file" %>
-    </div>
-    </div>
-    <div class="form-actions">
-      <%= f.button :submit,
-                   "Sign up",
-                    class: "btn form-btn" %>
-    </div>
-  </form>
-    <% end %>
-    <div class="shared-btn-div">
-    <%= render "devise/shared/links" %>
+  <div class="container image-form-container float-left d-flex">
+    <div class="container simple-form-container float-left">
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+      <%= f.error_notification %>
+    <form>
+    <div class="form-inputs">
+      <div class="form-group">
+        <%= f.input :email,
+                    placeholder: 'Email: ex. user@domain.com',
+                    label: false,
+                    required: true,
+                    autofocus: true,
+                    input_html: { autocomplete: "email" },
+                    class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :name,
+                    placeholder: 'Name: ex. Albert Einstein',
+                    label: false,
+                    required: true,
+                    input_html: { autocomplete: "name" },
+                    class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :bio,
+                    placeholder: 'Biography',
+                    as: :text,
+                    label: false,
+                    input_html: { autocomplete: "bio" },
+                    class: "form-control" %>
+      </div>
+      <div class="form-check">
+        <%= f.input :is_mentor,
+                    :label => 'Become a mentor',
+                    as: :boolean,
+                    input_html: { autocomplete: "Do you want to be a mentor?" },
+                    class: "form-check-input" %>
+      </div>
+      <div class="form-group">
+       <%= f.input :password,
+                    placeholder: 'Password',
+                    label: false,
+                    required: true,
+                    hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+                    input_html: { autocomplete: "new-password" },
+                    class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :password_confirmation,
+                    placeholder: 'Password confirmation',
+                    label: false,
+                    required: true,
+                    input_html: { autocomplete: "new-password" },
+                    class: "form-control" %>
+      </div>
+      <div class="form-group">
+        <%= f.input :photo,
+                    :label => 'Upload your profile picture',
+                    as: :file,
+                    class: "form-control-file" %>
+      </div>
+      </div>
+      <div class="form-actions">
+        <%= f.button :submit,
+                     "Sign up",
+                      class: "btn form-btn" %>
+      </div>
+    </form>
+      <% end %>
+      <div class="shared-btn-div">
+        <%= render "devise/shared/links" %>
+      </div>
+      <div class="form-img">
+        <img src="https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png">
+      </div>
     </div>
   </div>
 </div>
