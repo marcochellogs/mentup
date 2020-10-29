@@ -95,17 +95,17 @@ Lesson.create(user_id:6, name:"Mastering public speaking", description:"This les
 # assign_pic_to_lessons
 
 # Many BOOKINGS
-Booking.create(date: Date.today, lesson_id:1, user_id:9)
-Booking.create(date: Date.today, lesson_id:2, user_id:10)
-Booking.create(date: Date.today, lesson_id:3, user_id:11) #has a review
-Booking.create(date: Date.today, lesson_id:1, user_id:11)
-Booking.create(date: Date.today, lesson_id:2, user_id:11) #has a review
-Booking.create(date: Date.today, lesson_id:3, user_id:11)
-Booking.create(date: Date.today, lesson_id:2, user_id:1) #has a review
-Booking.create(date: Date.today, lesson_id:1, user_id:2)
-Booking.create(date: Date.today, lesson_id:1, user_id:4)
-Booking.create(date: Date.today, lesson_id:2, user_id:7)
-Booking.create(date: Date.today, lesson_id:1, user_id:7)
+Booking.create(date: DateTime.now, lesson_id:1, user_id:9)
+Booking.create(date: DateTime.now, lesson_id:2, user_id:10)
+Booking.create(date: DateTime.now, lesson_id:3, user_id:11) #has a review
+Booking.create(date: DateTime.now + 5.hours, lesson_id:1, user_id:11)
+Booking.create(date: DateTime.now + 5.hours, lesson_id:2, user_id:11) #has a review
+Booking.create(date: DateTime.now + 5.hours, lesson_id:3, user_id:11)
+Booking.create(date: DateTime.now + 10.hours, lesson_id:2, user_id:1) #has a review
+Booking.create(date: DateTime.now + 10.hours, lesson_id:1, user_id:2)
+Booking.create(date: DateTime.now + 15.hours, lesson_id:1, user_id:4)
+Booking.create(date: DateTime.now + 22.hours, lesson_id:2, user_id:7)
+Booking.create(date: DateTime.now + 25.hours, lesson_id:1, user_id:7)
 
 # 3 REVIEWS
 Review.create(title:"great Mentor", description:"After this session I managed to do a great speech. I loved the one on one talks, thay were very inspiring and I got much from the experience of this guy. I highly recommend him!", rating:5, booking_id:3)
