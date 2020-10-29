@@ -1,4 +1,16 @@
+.shared-btn-div.btn-cancel {
+  height: 60px;
+  padding-top: 5%;
+  border: none;
+}
 
+.btn-cancel {
+  color: $button-green;
+}
+.btn-cancel:hover {
+  color: red;
+  text-decoration: none;
+}
 .form-header {
   border-bottom: 5px solid #E0E0E0;
   border-width: thin;
