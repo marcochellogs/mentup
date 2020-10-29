@@ -8,7 +8,8 @@
 }
 
 .navbar-lewagon .navbar-brand img {
-  width: 40px;
+  width: 150px;
+  transition: 0.5s;
 }
 
 .btn-ghost {
@@ -34,7 +35,7 @@
 }
 
 .transparent   {
-  transition: 0.3s ease;
+  transition: 0.7s ease;
   background-color: transparent !important;
 }
 
@@ -44,4 +45,12 @@
 
 .sign-in-button {
   border: 1px solid white;
+}
+
+.invisible {
+  opacity: 0;
+}
+
+#logo-selector {
+  position: absolute;
 }
