@@ -15,39 +15,53 @@
 
 <div class="container mt-5">
   <div class="row">
+
   <% @lessons.each do |lesson|%>
     <div class="col-sm">
-      <div class="card-rounded mt-2 mx-auto" style="width: 18rem; height: 20rem">
+      <div class="card-rounded mt-2 mx-auto" style="width: 18rem; height: 27rem">
         <%# if lesson.photo.attached? %>
           <%# = cl_image_tag lesson.photo.key, height: 300, width: 400, crop: :fill %>
         <%# else %>
           <%# <img src="<%= @images.sample% >" style="height: 200px; object-fit: cover;" class="card-img-top img-card " alt=<%= drink.name % >> %>
         <%# end %>
 
-  <div class="card-body">
-    <p class="card-title"><%= lesson.name %><p>
-      <% if lesson.user.photo.attached? %>
-      <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, class:"img-border" %>
-      <br>
-      <% else %>
-      <img class="img-border" src="" alt="placeholder">
-      <br>
-      <% end %>
-    <small><%= lesson.description %></small>
-    <hr>
+        <div class="card-body">
+          <p class="card-title"><%= lesson.name %><p>
+            <div class="card-picture">
 
-  <div class="card-lesson-bottom">
-    <div class="btn-see-lesson">
-     <%= link_to 'See Lesson', lesson_path(lesson), class:'btn card-btn' %>
-   </div>
-    <div class="lesson-price">
-      <h5><%= lesson.price %>€</h5>
-    </div>
-    </div>
-</div>
+            </div>
+          <div class="card-photos">
+          <div class="card-profile-photo">
+
+            <% if lesson.user.photo.attached? %>
+              <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, class:"img-border" %>
+              <br>
+            <% else %>
+              <img class="img-border" src="" alt="placeholder">
+              <br>
+            <% end %>
+            </div>
+          </div>
+
+          <small class="lesson-description"><%= lesson.description %></small>
+
+          <hr>
+        </div>
+
+          <div class="card-lesson-bottom">
+            <div class="btn-see-lesson">
+              <%= link_to 'See Lesson', lesson_path(lesson), class:'btn card-btn btn ' %>
+            </div>
+
+            <div class="lesson-price">
+              <h5><%= lesson.price %>€</h5>
+            </div>
+          </div>
+
       </div>
     </div>
   <%end%>
+
   </div>
 </div>
 
