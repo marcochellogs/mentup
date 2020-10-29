@@ -4,26 +4,66 @@
   <div class="row">
   <% @lessons.each do |lesson|%>
     <div class="col-sm">
-      <div class="card rounded mt-2 mx-auto" style="width: 18rem">
+      <div class="card-rounded mt-2 mx-auto" style="width: 18rem; height: 20rem">
         <%# if lesson.photo.attached? %>
           <%# = cl_image_tag drink.photo.key, height: 300, width: 400, crop: :fill %>
         <%# else %>
           <%# <img src="<%= @images.sample% >" style="height: 200px; object-fit: cover;" class="card-img-top img-card " alt=<%= drink.name % >> %>
         <%# end %>
-        <% if lesson.user.photo.attached? %>
-          <img src="" alt="Profile img">
-        <% else %>
-         <img src="" alt="placeholder">
-        <% end %>
 
-        <div class="card-body" style="background-color: rgb(236, 226, 208)">
-          <h5 class="card-title"><%= lesson.name %></h5>
-          <%= link_to 'check out ' + lesson.name, lesson_path(lesson), class:'btn btn-success' %>
-        </div>
+  <div class="card-body">
+    <p class="card-title"><%= lesson.name %><p>
+      <% if lesson.user.photo.attached? %>
+      <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, class:"img-border" %>
+      <br>
+      <% else %>
+      <img class="img-border" src="" alt="placeholder">
+      <br>
+      <% end %>
+    <small><%= lesson.description %></small>
+    <hr>
+
+  <div class="card-lesson-bottom">
+    <div class="btn-see-lesson">
+     <%= link_to 'See Lesson', lesson_path(lesson), class:'btn card-btn' %>
+   </div>
+    <div class="lesson-price">
+      <p><%= lesson.price %>€</p>
+    </div>
+    </div>
+</div>
       </div>
     </div>
   <%end%>
   </div>
 </div>
 
+<!-- <div class="card-body"> -->
+<!--   <img src="" alt=""> -->
+  <!-- <div class="card-lesson-info">
+    <div>
+      <h5 class="card-title">Yoga</h5>
+    </div>
+    <h5 class="card-lesson-price">€ 40,00</h5> -->
+    <!-- <img src="" class="card-lesson-avatar" /> -->
+  <!--   </div>
+  </div> -->
+
+
+
 <%= render 'shared/footer' %>
+
+
+
+<!-- <div class="card-trip">
+  <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/greece.jpg" />
+  <div class="card-trip-infos">
+    <div>
+      <h2>Title here</h2>
+      <p>Short description here!</p>
+    </div>
+    <h2 class="card-trip-pricing">£99.99</h2>
+    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-trip-user avatar-bordered" />
+  </div>
+</div>
+ -->
