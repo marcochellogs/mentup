@@ -26,11 +26,12 @@ flex-direction: column;
 }
 
 .btn-see-lesson {
-  position: absolute; left: 20px;
+  position: absolute; left: 50px;
+  font-size: 12px;
 }
 
 .lesson-price {
-  position: absolute; right: 35px;
+  position: absolute; right: 70px;
 }
 
 // .lesson-description {
@@ -50,7 +51,7 @@ flex-direction: column;
   border-width: 1px;
   border-color: black;
   height: 100px;
-  margin-bottom: 6px;
+  margin-bottom: 10px;
   margin-left: 12px;
 }
 
@@ -59,7 +60,14 @@ flex-direction: column;
   justify-content: center;
 }
 
+.card-photos {
+  display: flex;
+  align-items: center;
+}
 
+.card-profile-name {
+  margin-left: 13px;
+}
 
 
 

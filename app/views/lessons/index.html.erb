@@ -41,20 +41,25 @@
               <br>
             <% end %>
             </div>
+          <div class="card-profile-name">
+           <% %>
+           <%= lesson.user.name %>
+           <%  %>
+          </div>
           </div>
 
           <small class="lesson-description"><%= lesson.description %></small>
-
+          <br>
           <hr>
         </div>
 
           <div class="card-lesson-bottom">
             <div class="btn-see-lesson">
-              <%= link_to 'See Lesson', lesson_path(lesson), class:'btn card-btn btn ' %>
+              <%= link_to 'See Lesson', lesson_path(lesson), class:'card-btn btn ' %>
             </div>
 
             <div class="lesson-price">
-              <h5><%= lesson.price %>€</h5>
+              <small><%= lesson.price %>€</small>
             </div>
           </div>
 
