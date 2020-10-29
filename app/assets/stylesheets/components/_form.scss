@@ -10,20 +10,27 @@
   font-size: 40px;
 }
 .simple-form-container {
-  width: 400px;
+  width: 35%;
 
 }
 .form-control {
   border-color: black !important;
   border-radius: 5px;
+  height: 48px;
 }
 .form-btn {
   background-color: green;
   border-radius: 5px;
   width: 100%;
+  color: white;
 }
-
-.form-actions {
-
+.btn-shared {
+  padding: 10px;
 }
-.text-area
+.shared-btn-div {
+  background-color: green;
+  border-radius: 5px;
+  width: 100%;
+  color: white;
+  margin: 5%;
+}
