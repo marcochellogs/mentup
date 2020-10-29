@@ -1,6 +1,7 @@
 
 .card-rounded {
   border: 0.5px solid grey;
+  border-radius: 5px;
 }
 
 .drop-shadow {
@@ -62,6 +63,9 @@ padding: 0 !important;
 .card-profile-name {
   margin-left: 13px;
   margin-top: -1rem;
+}
+.form-control.search {
+  border-radius: 5px;
 }
 
 
