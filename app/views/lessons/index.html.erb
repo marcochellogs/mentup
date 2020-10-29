@@ -17,8 +17,8 @@
   <div class="row">
 
   <% @lessons.each do |lesson|%>
-    <div class="col-sm">
-      <div class="card-rounded mt-2 mx-auto" style="width: 18rem; height: 27rem">
+    <div class="col-md-4">
+      <div class="card-rounded my-2 mx-auto drop-shadow" style="width: 18rem; height: 22rem">
         <%# if lesson.photo.attached? %>
           <%# = cl_image_tag lesson.photo.key, height: 300, width: 400, crop: :fill %>
         <%# else %>
@@ -26,30 +26,28 @@
         <%# end %>
 
         <div class="card-body">
-          <p class="card-title"><%= lesson.name %><p>
-            <div class="card-picture">
-
+            <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url(<%= cl_image_path lesson.photo.key %>); height: 300; width: 400; crop: :fill">
+          <p class="card-title text-white"><%= lesson.name %><p>
             </div>
           <div class="card-photos">
-          <div class="card-profile-photo">
 
+            <div class="card-profile-photo">
             <% if lesson.user.photo.attached? %>
               <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, class:"img-border" %>
               <br>
             <% else %>
-              <img class="img-border" src="" alt="placeholder">
+              <img class="img-border" src="placeholder-profile.jpg" alt="placeholder">
               <br>
             <% end %>
             </div>
-          <div class="card-profile-name">
-           <% %>
-           <%= lesson.user.name %>
-           <%  %>
-          </div>
+
+            <div class="card-profile-name">
+             <%= lesson.user.name %>
+            </div>
+
           </div>
 
-          <small class="lesson-description"><%= lesson.description %></small>
-          <br>
+          <p class="lesson-description px-3" style="font-size: 0.8rem; height: 4rem;"><%= lesson.description %></p>
           <hr>
         </div>
 
