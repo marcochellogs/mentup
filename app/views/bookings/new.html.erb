@@ -1,7 +1,40 @@
-<h1>Bookings new</h1>
-<div class="col-6 align-content-center">
-  <%= simple_form_for [@lesson, @booking] do |f| %>
-    <%= f.input :date %>
-    <%= f.button :submit, class: "btn" %>
-  <% end %>
+<div class="container form-container bg-white ">
+  <div class="container form-header float-left p-3 m-3">
+    <h5 class="form-title"><h1>Last step: book your lesson!</h1></h5>
+  </div>
+  <div class="container image-form-container float-left d-flex">
+    <div class="container simple-form-container booking float-left">
+      <form>
+          <div class="col-6 align-content-center">
+            <div class="form-group">
+              <h4 class="form-control booking">
+                <p class="booking-title">You want to book:</p>
+                <p class="booking-name"><%= @lesson.name %></p>
+                <p class="booking-title">Lesson's mentor:</p>
+                <p class="booking-name"><%= @lesson.user.name %></p>
+              </h4>
+            </div>
+            <div class="form-group">
+              <%= simple_form_for  [@lesson, @booking] do |f| %>
+              <%= f.input :date,
+                          as: :string,
+                          placeholder: 'Click here to choose a date',
+                          label: false,
+                          required: true,
+                          input_html: {class: "datepicker form-control"} %>
+            </div>
+            <div class="form-group">
+              <%= f.button :submit, "Book", class: "btn form-btn" %>
+            </div>
+            <% end %>
+          </div>
+      </form>
+      <div class="form-img">
+        <% @lesson.bookings.each do |booking| %>
+        <%= booking.user.name %>
+        <%=  booking.date %>
+        <% end %>
+      </div>
+    </div>
+  </div>
 </div>
