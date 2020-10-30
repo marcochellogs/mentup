@@ -2,6 +2,7 @@
   <div class="container form-header float-left p-3 m-3">
     <h5 class="form-title">Welcome back!<h5 class="form-title form-name">Log in</h5></h5>
   </div>
+
   <div class="container image-form-container float-left d-flex">
     <div class="container simple-form-container float-left">
       <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
@@ -20,7 +21,7 @@
       <%= f.input :password,
                   required: false,
                   label: false,
-                  placeholder: "Email",
+                  placeholder: "Password",
                   input_html: { autocomplete: "current-password" },
                   class: "form-control" %>
     </div>
@@ -37,6 +38,8 @@
 <% end %>
 <%= render "devise/shared/links" %>
 </div>
-  </div>
+<div class="form-img mr-5">
+  <%= image_tag "hiclipart.com (foglia).png", style:'width: 17rem;'%>
+</div>
 </div>
 
