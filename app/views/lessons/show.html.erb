@@ -1,32 +1,36 @@
 
 
-<div class="container-soraya mt-5">
+<div class="container-body mt-5">
 
   <div class="d-flex justify-content-around row">
 
     <div class="container-soraya border p-3 col-3 text-center ml-4">
 
-      <div class="border-bottom mt-4 mb-4">
+      <div class="border-bottom m-4">
         <% if @user.photo.attached? %>
-        <%= image_tag @user.photo, class: "avatar" %>
+          <%= image_tag @user.photo, class: "avatar mb-4" %>
         <% else %>
-          <%= image_tag "student.jpg", class: "avatar" %>
+          <%= image_tag "student.jpg", class: "avatar mb-4" %>
         <% end %>
         <h3><%= @user.name %></h3>
       </div>
 
       <div>
-        <div class="border w-90 mx-auto mb-4">
-          <p> <em> <%= @user.bio %> </em></p> <br> <br>
+        <div class="border w-90 mb-4">
+          <p> <em> <%= @user.bio %> </em></p>
+        </div>
+        <div class="w-90 mb-4">
+          <h4> Last Rating for this <%= @user.name %></h4>
+          <p> <em> <%= @lesson.bookings.last.review.rating %> </em></p>
         </div>
       </div>
     </div>
 
     <div class="container-soraya col-4 text-center d-flex flex-column">
 
-      <div class="container-soraya border rounded-sm flex-grow-1 mh-25">
-        <p>Lesson</p>
-        <p><%= @lesson.price %></p>
+      <div class="container-body rounded-sm flex-grow-1 mt-3">
+        <h2><%= @lesson.name %></h2>
+        <p> This lesson costs <%= @lesson.price %>€</p>
       </div>
 
       <div class="border-bottom flex-grow-2" style="height: 30px; margin-bottom: 30px">
@@ -34,13 +38,13 @@
 
       <div class="container-soraya border rounded-sm flex-grow-1">
         <% if @reviews.nil? %>
-            <h5>There are no reviews</h5>
-          <% else %>
-            <% @reviews.each do |review| %>
-              <h3><%= review.title %></h3>
-              <p><%= review.rating %></p>
-              <p><%= review.description %></p>
-            <% end %>
+          <h5>There are no reviews</h5>
+        <% else %>
+          <% @reviews.each do |review| %>
+            <h3><%= review.title %></h3>
+            <p><%= review.rating %></p>
+            <p><%= review.description %></p>
+          <% end %>
         <% end %>
       </div>
 
@@ -56,7 +60,7 @@
           <%= 'for ' + booking.lesson.duration.to_s + ' hours'%>
         <% end %>
       </div>
-    <button type="button" class ="btn btn-success btn-lg">Book a lesson</button>
+      <%= link_to "Book Lesson with this mentor", new_lesson_booking_path(@lesson), class: 'btn form-btn'%>
     </div>
 
   </div>
