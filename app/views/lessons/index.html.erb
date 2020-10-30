@@ -24,8 +24,8 @@
       <div class="card-rounded my-2 mx-auto drop-shadow" style="width: 18rem; height: 22rem">
 
         <div class="card-body">
-          <% if lesson.photo.attached? %>
-            <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url(<%= cl_image_path lesson.photo.key %>); height: 300; width: 400; crop: :fill">
+          <% if lesson.category.photo.attached? %>
+            <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url(<%= cl_image_path lesson.category.photo.key %>); height: 300; width: 400; crop: :fill">
           <% else %>
             <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url(<%= image_path "mentup-verdone.png"%>); height: 300; width: 400; crop: :fill">
           <% end %>
@@ -35,10 +35,10 @@
 
             <div class="card-profile-photo">
             <% if lesson.user.photo.attached? %>
-              <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, class:"img-border avatar" %>
+              <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, gravity: :face, class:"img-border avatar" %>
               <br>
             <% else %>
-              <img class="img-border" src="placeholder-profile.jpg" alt="placeholder">
+              <%= image_tag "placeholder-profile.jpg", class: "img-border", alt: "placeholder" %>
               <br>
             <% end %>
             </div>
