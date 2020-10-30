@@ -1,6 +1,6 @@
 <div class="container form-container bg-white ">
   <div class="container form-header float-left p-3 m-3">
-    <h5 class="form-title">Hello, let's create your profile!</h5>
+    <h5 class="form-title">Hello,<h5 class="form-title form-name">let's create your profile!</h5></h5>
   </div>
   <div class="container image-form-container float-left d-flex">
     <div class="container simple-form-container float-left">
@@ -9,20 +9,20 @@
     <form>
     <div class="form-inputs">
       <div class="form-group">
+        <%= f.input :name,
+                    placeholder: 'Name: ex. Albert Einstein',
+                    label: false,
+                    required: true,
+                    input_html: { autocomplete: "name" },
+                    class: "form-control" %>
+      </div>
+      <div class="form-group">
         <%= f.input :email,
                     placeholder: 'Email: ex. user@domain.com',
                     label: false,
                     required: true,
                     autofocus: true,
                     input_html: { autocomplete: "email" },
-                    class: "form-control" %>
-      </div>
-      <div class="form-group">
-        <%= f.input :name,
-                    placeholder: 'Name: ex. Albert Einstein',
-                    label: false,
-                    required: true,
-                    input_html: { autocomplete: "name" },
                     class: "form-control" %>
       </div>
       <div class="form-group">
@@ -35,7 +35,7 @@
       </div>
       <div class="form-check">
         <%= f.input :is_mentor,
-                    :label => 'Become a mentor',
+                    :label => 'BECOME A MENTOR',
                     as: :boolean,
                     input_html: { autocomplete: "Do you want to be a mentor?" },
                     class: "form-check-input" %>
