@@ -1,76 +1,61 @@
-<div class="container text-center">
-  <h1>Welcome to your profile, <%= current_user.name.capitalize %>!</h1>
-
-    <div class="card text-center ml-1 mt-3">
-      <div class="card-header">
-        <strong>Your Profile</strong>
-      </div>
-
-    <div class="card-body">
-      <% if current_user.photo.attached? %>
-        <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
-      <% else %>
-        <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill')">
-      <% end %>
-        <h5 class="card-title"><%= current_user.name.capitalize %></h5>
-        <p class="card-text border-bottom"><%= current_user.email%></p>
-        <strong><label>Biography</label></strong>
-        <p class="card-text border-bottom"><%= current_user.bio%></p>
-        <% if current_user.is_mentor %>
-        <p class="card-text">You are a mentor</p>
-        <% end %>
-        <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-success btn-sm">Update profile</a>
-    </div>
-  </div>
-
-
-  <%# card my bookings %>
-  <div class="card text-center">
-    <div class="card-header">
-      <% if @bookings.nil? %>
-        <p>You have 0 bookings</p>
-      <% else %>
-        <% @bookings.each do |booking| %>
-      <%= booking.lesson.name %>
-      <%= booking.date %>
-    <% end %>
-    <% end %>
-
-  <% if current_user.is_mentor %>
-  <% if @mentor_lesson.nil? %>
-    <%= link_to 'Create your Lesson', new_lesson_path  %>
-  <%# card mentor lesson %>
-  <% else %>
-  </div>
-
-
-    <div class="card text-center">
-      <div class="card-header">
-        Your mentor lesson
-      </div>
-      <div class="card-body">
-        <h5 class="card-title"><%= @mentor_lesson.name%></h5>
-        <p class="card-text"><%= @mentor_lesson.description%></p>
-        <p class="card-text"><%= @mentor_lesson.duration%></p>
-        <p class="card-text"><%= @mentor_lesson.price%></p>
-        <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-success">Update lesson</a>
-      </div>
-    </div>
-    <% end %>
-  </div>
-
-    <%# card mentor bookings  %>
-    <% if @mentor_bookings.nil? %>
-      <h5>You have 0 bookings</h5>
-    <% else %>
-      <h5>You have <%= @mentor_bookings.count %> bookings:</h5> <%# we need always more than 1 booking as seed %>
-      <% @mentor_bookings.each do |booking| %>
-        <%= booking.date %>
-        <%= booking.user.name %> <%# student's name  %>
-    <% end %>
-  <% end %>
-  <% end %>
+<div class="form-header">
+  <h1 class='text-center'>Your profile</h1>
 </div>
+<%= render 'shared/footer' %>
+<div class="container-body">
+  <div class="d-flex justify-content-around row" style="height: 80vh;">
+    <div class="container-soraya border p-3 col-3 text-center ml-4" style="position: relative;">
+      <div class="border-bottom m-4">
+        <% if @user.photo.attached? %>
+          <%= image_tag @user.photo, class: "avatar mb-4" %>
+        <% else %>
+          <%= image_tag "student.jpg", class: "avatar mb-4" %>
+        <% end %>
+        <h3><%= @user.name %></h3>
+      </div>
+
+      <div>
+        <div class="w-90 p-5">
+          <p>  Bio </p>
+          <p> <em> <%= @user.bio %> </em></p>
+        </div>
+        <%= link_to "Update your profile", edit_user_registration_path(@user), class: "btn form-btn profile-btn" %>
+      </div>
+    </div>
+
+    <div class="container-soraya col-4 text-center d-flex flex-column" style="position: relative;">
+
+      <% if @user.is_mentor%>
+        <div class="container-body rounded-sm flex-grow-1 mt-3 p-1">
+          <h2><%= @mentor_lesson.name %></h2>
+          <%= cl_image_tag @mentor_lesson.photo.key, class: 'img-show-lesson' %>
+          <p class="pt-2">Description</p>
+          <p class="p-1"> <%= @mentor_lesson.description %></p>
+          <p> Your lesson costs <%= @mentor_lesson.price %>€</p>
+          <%= link_to "Update your lesson", edit_lesson_path(@mentor_lesson), class: "btn form-btn profile-btn" %>
+        </div>
+      <% else %>
+        <%= image_tag "mentup-verdone.png", class: 'mt-5'%>
+        <%= link_to "Become a mentor and teach others to be Pros", edit_user_registration_path(@user), class: "btn form-btn profile-btn" %>
+      <% end %>
+    </div>
 
 
+    <div class="container-soraya border rounded p-3 col-3 text-center mr-4" style="position: relative;">
+
+      <div class="container-body" style="height: 15vh;">
+        <% if @bookings %>
+          <h5 class="mt-5 mb-3"> Your appointments: </h5>
+          <% @bookings.last(5).each do |booking| %>
+          <p><%= booking.date.to_time.strftime('%A, %d %b %Y %l:%M %p')%></p>
+          <% end %>
+          <%= link_to "All your bookings", bookings_path(@user), class: "btn form-btn mt-5 profile-btn" %>
+        <% else %>
+          <h5>You have no scheduled sessions</h5>
+        <% end %>
+      </div>
+
+    </div>
+
+</div>
 <%= render 'shared/footer' %>
