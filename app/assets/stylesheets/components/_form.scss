@@ -9,6 +9,43 @@ h2.name {
   color: $button-green;
   font-size: 30px !important;
 }
+
+.btn-forget {
+  color: $button-green;
+  padding: 0 20%;
+  margin: 0 2%;
+}
+.btn-forget:hover {
+  color: orange;
+  text-decoration: none;
+}
+
+.form-name {
+  color: $button-green;
+}
+
+.shared-btn-div.btn-cancel {
+  height: 60px;
+  padding-top: 5%;
+  border: none;
+}
+
+.btn-cancel {
+  color: $button-green;
+}
+
+.btn-cancel:hover {
+  color: red;
+  text-decoration: none;
+
+.container.right {
+padding-left: 150px;
+}
+  
+.container.right.start {
+padding-top: 150px;
+}
+  
 .form-header {
   border-bottom: 5px solid #E0E0E0;
   border-width: thin;
@@ -17,6 +54,7 @@ h2.name {
 
 .form-title {
   font-size: 3em;
+  font-family: "Poppins", "sans-serif";
 }
 
 .image-form-container {

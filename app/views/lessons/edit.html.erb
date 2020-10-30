@@ -1,4 +1,8 @@
-<h1>Lessons#edit</h1>
+<% if current_user.is_mentor %>
+  <div class="book">
+    <h5 class="form-title"><h1>Update your lesson!</h1></h5>
+  </div>
+<% end %>
 
 <%= render 'form' %>
 
