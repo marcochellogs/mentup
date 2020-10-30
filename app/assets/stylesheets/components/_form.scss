@@ -12,8 +12,8 @@ h2.name {
 
 .btn-forget {
   color: $button-green;
-  padding: 0 20%;
-  margin: 0 2%;
+  padding: 0 0;
+  margin-left: 160px;
 }
 .btn-forget:hover {
   color: orange;
@@ -50,7 +50,7 @@ padding-top: 150px;
 .form-header {
   border-bottom: 5px solid #E0E0E0;
   border-width: thin;
-  box-shadow: 0 8px 8px -8px #E0E0E0;
+  box-shadow: 0 8px 8px -8px gray;
 }
 
 .form-title {
@@ -67,7 +67,7 @@ padding-top: 150px;
 .simple-form-container {
   margin-top: 24px;
   margin-left: 0px;
-  width: 35%;
+  width: 50%;
 }
 
 .form-control {

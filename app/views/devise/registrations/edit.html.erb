@@ -16,7 +16,7 @@
       <div class="form-inputs">
         <div class="form-group">
           <%= f.input :is_mentor,
-                      :label => 'MENTOR',
+                      :label => 'BECOME A MENTOR',
                       as: :boolean,
                       input_html: { autocomplete: "Do you want to be a mentor?" },
                       class: "form-control" %>
@@ -89,9 +89,11 @@
       <div class="shared-btn-div mb-2">
         <%= link_to "Back", profile_path(current_user), class: "btn form-btn" %>
       </div>
-      <!-- <div class="form-img">
-        <img src="https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png">
-      </div> -->
+
     </div>
+
+  <div class="form-img mr-5">
+    <%= image_tag "hiclipart.com (foglia).png", style:'width: 17rem;'%>
   </div>
+</div>
 </div>
