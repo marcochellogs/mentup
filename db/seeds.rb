@@ -9,29 +9,45 @@
 
 password = '123456'
 
-User.create(email:"mentor@gmail.com", password:password, name:"Giulia Martinelli", bio:"Hey there! I'm 23 years old and I'm a really good public speaker. I will teach you how to make a speech in front of 200 people and nail it!", is_mentor:true)
-User.create(email:"mentor1@gmail.com", password:password, name:"Soraya De Lisa", bio:"I am 36 and I am a passionate accountant. ", is_mentor:true)
+user1 = User.create(email:"mentor@gmail.com", password:password, name:"Marco Checchi", bio:"Hey there! I'm 23 years old and I'm a really good public speaker. I will teach you how to make a speech in front of 200 people and nail it!", is_mentor:true)
+file_path = File.join(Rails.root, "/app/assets/images/profile-marco.jpg")
+user1.photo.attach(io: File.open(file_path), filename: "picture marco.jpg")
+
+user2 = User.create(email:"mentor1@gmail.com", password:password, name:"Soraya De Lisa", bio:"I am 36 and I am a passionate accountant. ", is_mentor:true)
+file_path = File.join(Rails.root, "/app/assets/images/profile-soraya.jpg")
+user2.photo.attach(io: File.open(file_path), filename: "picture soraya.jpg")
   #these 2 above have user bookings
-User.create(email:"mentor2@gmail.com", password:password, name:"Naelle Burger", bio:"Hey, I'm Naelle, I am a veteran and current MBA Candidate. Sharing startup knowledge is my passion.", is_mentor:true)
+user3 = User.create(email:"mentor2@gmail.com", password:password, name:"Naelle Burger", bio:"Hey, I'm Naelle, I am a veteran and current MBA Candidate. Sharing startup knowledge is my passion.", is_mentor:true)
+file_path = File.join(Rails.root, "/app/assets/images/profile-naelle.jpg")
+user3.photo.attach(io: File.open(file_path), filename: "picture Naelle.jpg")
 # Mentors below have no mentor bookings
-User.create(email:"mentornob@gmail.com", password:password, name:"Marco Checchi", bio:"My main goal is to help others become better in their personal, professional and financial life.", is_mentor:true)
+user4 = User.create(email:"mentornob@gmail.com", password:password, name:"Enrico Favaro", bio:"My main goal is to help others become better in their personal, professional and financial life.", is_mentor:true)
+file_path = File.join(Rails.root, "/app/assets/images/profile-enrico.jpg")
+user4.photo.attach(io: File.open(file_path), filename: "picture Enrico.jpg")
   #this above one has a user booking
-User.create(email:"mentor1nob@gmail.com", password:password, name:"Michele Comolli", bio:"Hello, I am German teacher in elementary and middle school; my greatest hope is to make learning this language fun and easy for every one.", is_mentor:true)
-User.create(email:"mentor2nob@gmail.com", password:password, name:"Giacomo Bonomelli", bio:"I am a Yoga Teacher and I have been teaching yoga since 2006. I love to practice yoga and love to share my skills with others.", is_mentor:true)
+user5 = User.create(email:"mentor1nob@gmail.com", password:password, name:"Michele Comolli", bio:"Hello, I am German teacher in elementary and middle school; my greatest hope is to make learning this language fun and easy for every one.", is_mentor:true)
+user6 = User.create(email:"mentor2nob@gmail.com", password:password, name:"Giacomo Bonomelli", bio:"I am a Yoga Teacher and I have been teaching yoga since 2006. I love to practice yoga and love to share my skills with others.", is_mentor:true)
 # Mentors below have no lesson
-User.create(email:"mentornol@gmail.com", password:password, name:"Michael Tung", bio:"HI I'm a professional cook and I'm really good. I will guide you through the making of a carbonara for 20 people.", is_mentor:true)
+user7 = User.create(email:"mentornol@gmail.com", password:password, name:"Michael Tung", bio:"HI I'm a professional cook and I'm really good. I will guide you through the making of a carbonara for 20 people.", is_mentor:true)
   #this one above has 2 user bookings
-User.create(email:"mentor1nol@gmail.com", password:password, name:"Lily Walch", bio:"My name is Lily! I am passionate about coding. I love to teach the code!", is_mentor:true)
+user8 = User.create(email:"mentor1nol@gmail.com", password:password, name:"Lily Walch", bio:"My name is Lily! I am passionate about coding. I love to teach the code!", is_mentor:true)
 
 # USERS id 9 - 14
-User.create(email:"student@gmail.com", password:password, name:"Enrico Favaro", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
-User.create(email:"student1@gmail.com", password:password, name:"Katrina Amor Robles", bio:"Hi, I am always looking forward to the opportunity to learn and find people who can help me reach my goals! I hope to meet many mentors that can teach me new stuff and help me achieve all my goals!", is_mentor:false)
+user9 = User.create(email:"student@gmail.com", password:password, name:"Giulia Martinelli", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
+file_path = File.join(Rails.root, "/app/assets/images/profile-giulia.jpg")
+user9.photo.attach(io: File.open(file_path), filename: "picture-giulia.jpg")
+
+user11 = User.create(email:"student1@gmail.com", password:password, name:"Katrina Amor Robles", bio:"Hi, I am always looking forward to the opportunity to learn and find people who can help me reach my goals! I hope to meet many mentors that can teach me new stuff and help me achieve all my goals!", is_mentor:false)
+file_path = File.join(Rails.root, "/app/assets/images/profile-cat.jpg")
+user11.photo.attach(io: File.open(file_path), filename: "picture-cat.jpg")
   # tho one below has many bookings
-User.create(email:"student2@gmail.com", password:password, name:"Maria Vittoria Dalla Rosa Prati", bio:"Hey, I'm Mery, I love animals and I nature. I am love to learn new stuff and meeting new people! Can't wait to improve my skills and meet new people.", is_mentor:false)
+user12 = User.create(email:"student2@gmail.com", password:password, name:"Maria Vittoria Dalla Rosa Prati", bio:"Hey, I'm Mery, I love animals and I nature. I am love to learn new stuff and meeting new people! Can't wait to improve my skills and meet new people.", is_mentor:false)
+file_path = File.join(Rails.root, "/app/assets/images/profile-maria.jpg")
+user12.photo.attach(io: File.open(file_path), filename: "picture-maria.jpg")
 #Users below have no booking id 12-14
-User.create(email:"studentnob@gmail.com", password:password, name:"Yassine Chaqroun", bio:"Hi, I'm Yassine! I am 35 and I am an amateurial singer. I am always open to gain valuable knowledge and I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
-User.create(email:"student1nob@gmail.com", password:password, name:"Francesco Ecclesie", bio:"Hi, I am Francesco, I am 50, I love to code and I love to learn new stuff. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
-User.create(email:"student2nob@gmail.com", password:password, name:"Leonardo Dalla Via", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
+user13 = User.create(email:"studentnob@gmail.com", password:password, name:"Yassine Chaqroun", bio:"Hi, I'm Yassine! I am 35 and I am an amateurial singer. I am always open to gain valuable knowledge and I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
+user14 = User.create(email:"student1nob@gmail.com", password:password, name:"Francesco Ecclesie", bio:"Hi, I am Francesco, I am 50, I love to code and I love to learn new stuff. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
+user15 = User.create(email:"student2nob@gmail.com", password:password, name:"Leonardo Dalla Via", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
 
 
 # 10 CATEGORIES with picture
