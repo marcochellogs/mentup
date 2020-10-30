@@ -20,14 +20,16 @@
           <p> <em> <%= @user.bio %> </em></p>
         </div>
         <div class="w-90 mb-4 p-2">
-          <% if @lesson.bookings.last.review %>
-            <h4> Last Rating for <%= @user.name %></h4>
-            <p><%= @lesson.bookings.last.review.title %></p>
-            <% @lesson.bookings.last.review.rating.times do %>
-              <i class="fas fa-star text-warning"></i>
+          <% if @bookings %>
+            <% if @lesson.bookings.last.review %>
+              <h4> Last Rating for <%= @user.name %></h4>
+              <p><%= @lesson.bookings.last.review.title %></p>
+              <% @lesson.bookings.last.review.rating.times do %>
+                <i class="fas fa-star text-warning"></i>
+              <% end %>
+            <% else %>
+              <h4> <%= @user.name.capitalize %> has no reviews yet</h4>
             <% end %>
-          <% else %>
-            <h4> <%= @user.name.capitalize %> has no reviews yet</h4>
           <% end %>
         </div>
       </div>
