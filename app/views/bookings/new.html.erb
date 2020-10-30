@@ -24,8 +24,8 @@
   </div>
 
   <div class=right>
-    <div class="container">
-    <h4 class="booking-title mb-4">Check out who booked this lesson!</h4>
+    <div class="container mt-3">
+    <h4 class="booking-title mb-4 ml-2">Check out who booked this lesson!</h4>
     <% @lesson.bookings.each do |booking| %>
     <div class="form-img-item item">
       <p><%= booking.user.name %> : <%= booking.date.to_time.strftime('%A, %d %b %Y %l:%M %p') %></p>
