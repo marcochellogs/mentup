@@ -1,4 +1,7 @@
-<div class="container-main mt-5">
+
+
+<div class="container-soraya mt-5">
+
   <div class="d-flex justify-content-around row">
 
     <div class="container-soraya border p-3 col-3 text-center ml-4">
@@ -19,7 +22,7 @@
       </div>
     </div>
 
-    <div class="container-center col-4 text-center d-flex flex-column">
+    <div class="container-soraya col-4 text-center d-flex flex-column">
 
       <div class="container-soraya border rounded-sm flex-grow-1 mh-25">
         <p>Lesson</p>
@@ -31,7 +34,7 @@
 
       <div class="container-soraya border rounded-sm flex-grow-1">
         <% if @reviews.nil? %>
-            <h5>Missing link to go on new review</h5>
+            <h5>There are no reviews</h5>
           <% else %>
             <% @reviews.each do |review| %>
               <h3><%= review.title %></h3>
@@ -46,7 +49,7 @@
 
     <div class="container-soraya border rounded p-3 col-3 text-center mr-4">
 
-      <div class="container-booker">
+      <div class="container-soraya">
         <p> These are the dates and times in which this Mentor was already booked: </p>
         <% @bookings.each do |booking| %>
           <%= booking.date %>
