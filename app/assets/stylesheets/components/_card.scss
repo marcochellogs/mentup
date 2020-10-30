@@ -1,4 +1,6 @@
-
+.booking-index-container {
+  height: 3000px;
+}
 .card-rounded {
   border-radius: 5px;
   width: 18.5rem !important;
@@ -21,11 +23,9 @@ padding: 0 !important;
 }
 
 .img-border {
-  border-radius: 50%;
   width: 50px;
   height: 50px;
   object-fit: cover;
-
   margin-left: 24px;
   margin-bottom: 5px;
   margin-top: -2.6rem;
@@ -88,23 +88,33 @@ padding: 0 !important;
 
 .card-product {
   overflow: hidden;
-  height: 300px;
+  height: 410px;
+  width: 100%;
   background: white;
-  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  box-shadow: 0 0 5px rgba(0,0,0,0.2);
   display: flex;
   align-items: center;
+  border-radius: 5px;
+
 }
 
 .card-product img {
-  height: 40%;
+  height: 70%;
   width: 120px;
   object-fit: cover;
+  margin-top: 1.5em;
+  margin-right: 10px;
 }
 
 .card-product h2 {
   font-size: 16px;
   font-weight: bold;
-  margin: 0;
+  margin-top: 8px;
+}
+.card-product h3 {
+  font-size: 12px;
+  font-weight: lighter;
+  margin-top: 8px;
 }
 
 .card-product p {
@@ -112,7 +122,7 @@ padding: 0 !important;
   line-height: 1.4;
   opacity: .7;
   margin-bottom: 0;
-  margin-top: 8px;
+
 }
 
 .card-product .card-product-infos {
