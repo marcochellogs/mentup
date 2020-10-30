@@ -1,17 +1,48 @@
-<div class="col-6 align-content-center">
-
+<div class="container form-container bg-white ">
+  <div class="c-flex">
+    <div class=left>
+      <div class="container">
 <% if current_user.is_mentor %>
-
-  <%= simple_form_for @lesson do |f| %>
-    <%= f.input :name %>
-    <%= f.input :description, as: :text %>
-    <%= f.input :duration, as: :integer %>
-    <%= f.input :price, as: :string %>
-    <%= f.association :category, as: :select %>
-    <%= f.input :photo, as: :file %>
-    <%= f.button :submit %>
-  <% end %>
+    <%= simple_form_for @lesson do |f| %>
+      <%= f.input :name,
+                  placeholder: 'Name your lesson',
+                  label: false %>
+      <%= f.input :description,
+                  as: :text,
+                  placeholder: 'Describe your lesson',
+                  label: false %>
+      <%= f.input :duration,
+                  placeholder: 'How long is your lesson going to last?',
+                  label: false,
+                   as: :integer %>
+      <%= f.input :price,
+                  placeholder: 'What is the price?',
+                  label: false,
+                  as: :string %>
+      <%= f.association :category,
+                        placeholder: 'Pick a category for your lesson',
+                        label: false,
+                        as: :select %>
+      <%= f.input :photo, as: :file %>
+      <%= f.button :submit, class: "btn form-btn" %>
+    <% end %>
 <% else %>
-  <%= link_to 'Become a Mentor!', edit_user_registration_path(current_user) %>
+  <div class="book">
+    <h5 class="form-title"><h1 class="form-name">Start mentoring today!</h1></h5>
+  </div>
+  <div class="container">
+  <h5 class="booking-name">Are you really good at something?<br> Share your best skill!</h5>
+  <p class="booking-name">Becoming a mentor is the fastest way share your knowledge and capabilities.</p>
+  <p class="booking-name">Manage dinamically your lesson and your bookings on Mentup.</p>
+  <%= link_to 'Become a Mentor', edit_user_registration_path(current_user), class: "btn form-btn" %>
+  </div>
 <% end %>
+</div>
+</div>
+  <div class="right">
+    <div class="container right start">
+      <%= image_tag "hiclipart.com (foglia).png", style:'width: 17rem;'%>
+    </div>
+  </div>
+</div>
 </div>
