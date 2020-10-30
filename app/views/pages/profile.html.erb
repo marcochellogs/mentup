@@ -1,43 +1,50 @@
-<div class="container">
-<div class="card text-center">
+<div class="container text-center">
+  <h1>Welcome to your profile, <%= current_user.name.capitalize %>!</h1>
 
-  <div class="card-header">
-    Welcome to your profile, <%= current_user.name.capitalize %>
-  </div>
+    <div class="card text-center ml-1 mt-3">
+      <div class="card-header">
+        <strong>Your Profile</strong>
+      </div>
 
-  <div class="card-body">
-    <% if current_user.photo.attached? %>
-      <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
-    <% else %>
-      <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill')">
-    <% end %>
+    <div class="card-body">
+      <% if current_user.photo.attached? %>
+        <%=cl_image_tag current_user.photo.key, height: 300, width: 400, crop: :fill%>
+      <% else %>
+        <div class="card-category" style=" height: 400px; background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill')">
+      <% end %>
         <h5 class="card-title"><%= current_user.name.capitalize %></h5>
-        <p class="card-text"><%= current_user.email%></p>
-        <label>Biography</label>
-        <p class="card-text"><%= current_user.bio%></p>
+        <p class="card-text border-bottom"><%= current_user.email%></p>
+        <strong><label>Biography</label></strong>
+        <p class="card-text border-bottom"><%= current_user.bio%></p>
         <% if current_user.is_mentor %>
         <p class="card-text">You are a mentor</p>
         <% end %>
-        <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-primary">Update profile</a>
-      </div>
+        <a href="<%= edit_user_registration_path(current_user) %>" class="btn btn-success btn-sm">Update profile</a>
+    </div>
   </div>
-</div>
+
+
   <%# card my bookings %>
-  <% if @bookings.nil? %>
-  <p>You have 0 bookings</p>
-  <% else %>
-  <% @bookings.each do |booking| %>
-    <%= booking.lesson.name %>
-    <%= booking.date %>
-  <% end %>
-  <% end %>
+  <div class="card text-center">
+    <div class="card-header">
+      <% if @bookings.nil? %>
+        <p>You have 0 bookings</p>
+      <% else %>
+        <% @bookings.each do |booking| %>
+      <%= booking.lesson.name %>
+      <%= booking.date %>
+    <% end %>
+    <% end %>
 
   <% if current_user.is_mentor %>
   <% if @mentor_lesson.nil? %>
     <%= link_to 'Create your Lesson', new_lesson_path  %>
   <%# card mentor lesson %>
   <% else %>
-    <div class="card">
+  </div>
+
+
+    <div class="card text-center">
       <div class="card-header">
         Your mentor lesson
       </div>
@@ -46,10 +53,12 @@
         <p class="card-text"><%= @mentor_lesson.description%></p>
         <p class="card-text"><%= @mentor_lesson.duration%></p>
         <p class="card-text"><%= @mentor_lesson.price%></p>
-        <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-primary">Update lesson</a>
+        <a href="<%= edit_lesson_path(@mentor_lesson) %>" class="btn btn-success">Update lesson</a>
       </div>
     </div>
     <% end %>
+  </div>
+
     <%# card mentor bookings  %>
     <% if @mentor_bookings.nil? %>
       <h5>You have 0 bookings</h5>
@@ -61,7 +70,7 @@
     <% end %>
   <% end %>
   <% end %>
+</div>
 
 
 <%= render 'shared/footer' %>
-</div>

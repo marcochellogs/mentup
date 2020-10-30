@@ -1,7 +1,7 @@
-<div class="container-main">
+<div class="container-main mt-5">
   <div class="d-flex justify-content-around row">
 
-    <div class="container-left border p-3 col-3 text-center ml-4">
+    <div class="container-soraya border p-3 col-3 text-center ml-4">
 
       <div class="border-bottom mt-4 mb-4">
         <% if @user.photo.attached? %>
@@ -21,7 +21,7 @@
 
     <div class="container-center col-4 text-center d-flex flex-column">
 
-      <div class="container-pictures border rounded-sm flex-grow-1 mh-25">
+      <div class="container-soraya border rounded-sm flex-grow-1 mh-25">
         <p>Lesson</p>
         <p><%= @lesson.price %></p>
       </div>
@@ -29,7 +29,7 @@
       <div class="border-bottom flex-grow-2" style="height: 30px; margin-bottom: 30px">
       </div>
 
-      <div class="containter-reviews border rounded-sm flex-grow-1">
+      <div class="container-soraya border rounded-sm flex-grow-1">
         <% if @reviews.nil? %>
             <h5>Missing link to go on new review</h5>
           <% else %>
@@ -44,7 +44,7 @@
     </div>
 
 
-    <div class="container-right border rounded p-3 col-3 text-center mr-4">
+    <div class="container-soraya border rounded p-3 col-3 text-center mr-4">
 
       <div class="container-booker">
         <p> These are the dates and times in which this Mentor was already booked: </p>
