@@ -20,11 +20,11 @@
           <p> <em> <%= @user.bio %> </em></p>
         </div>
         <div class="w-90 mb-4 p-2">
-          <% if @bookings %>
-            <% if @lesson.bookings.last.review %>
+          <% if @bookings.last %>
+            <% if @bookings.last.review %>
               <h4> Last Rating for <%= @user.name %></h4>
-              <p><%= @lesson.bookings.last.review.title %></p>
-              <% @lesson.bookings.last.review.rating.times do %>
+              <p><%= @bookings.last.review.title %></p>
+              <% @bookings.last.review.rating.times do %>
                 <i class="fas fa-star text-warning"></i>
               <% end %>
             <% else %>
@@ -39,7 +39,11 @@
 
       <div class="container-body rounded-sm flex-grow-1 mt-3 p-1">
         <h2><%= @lesson.name %></h2>
-        <%= cl_image_tag @lesson.photo.key, class: 'img-show-lesson' %>
+        <% if @lesson.photo.attached? %>
+          <%= cl_image_tag @lesson.photo.key, class: 'img-show-lesson' %>
+        <% else %>
+          <%= image_tag "mentup-verdone.png"%>
+        <% end %>
         <p class="p-3"> <%= @lesson.description %></p>
         <p> This lesson costs <%= @lesson.price %>€</p>
       <%= link_to "Book Lesson with this mentor", new_lesson_booking_path(@lesson), class: 'btn form-btn'%>
