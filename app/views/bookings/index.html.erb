@@ -1,12 +1,31 @@
-<h1>Bookings Dashboard</h1>
-
+<div class="form-header">
+<h1 class='text-center'>Bookings Dashboard</h1>
+</div>
 <p>You have <%= @bookings.count %> bookings</p>
-
+<div class="container mt-5">
+  <div class="d-flex flex-column">
   <% @bookings.each do |booking| %>
+      <%#div class="card-rounded my-2 mx-auto drop-shadow" style="width: 18rem; height: 22rem">%>
+    <div class="card-product">
+      <% if booking.user.photo.attached? %>
+        <%= cl_image_tag booking.lesson.user.photo.key, height: 200, width: 200, crop: :fill, class:"img-border" %>
+      <% else %>
+        <img class="img-border" src="placeholder-profile.jpg" alt="placeholder">
+      <% end %>
+    <div class="card-product-infos">
+    <p>Lesson booked</p>
+    <h2>Mentor: <h2><%= booking.lesson.user.name.capitalize %></h2></h2> <%# mentor name  %>
+    <p><%= booking.lesson.name %></p> <%# mentor lesson name  %>
+    <p><%= booking.lesson.description %></p> <%# mentor lesson description  %>
+  </div>
+</div>
 
-    <%= booking.date %>
-    <%= booking.user.name %><br>
-    <%= booking.lesson.name %><br> <%#lesson's name %>
+
+          <%#student  %>
+          <%= booking.user.name %><br>
+          <%= booking.date.to_time.strftime('%A, %d %b %Y %l:%M %p') %>
+
+     <%#lesson's name %>
     <% if booking.review != nil %>
       <%= booking.review.title %>
       <%= booking.review.description %>

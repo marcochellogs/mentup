@@ -1,12 +1,14 @@
-<h1 class='text-center' >Find the perfect lesson for your needs</h1>
+<div class="form-header">
+<h1 class='text-center'>Find the perfect lesson for your needs</h1>
+</div>
 <br>
 <div class="row d-flex justify-content-center">
   <div class="form-group col-md-12 d-flex justify-content-center">
     <%= form_tag lessons_path, method: :get do %>
-      <div class="search-form-control form-group w-100">
+      <div class="search-form-control form-group w-100 mt-3">
         <%= text_field_tag :query,
         params[:query],
-        class: "form-control search align-self-center",
+        class: "form-control search align-self-center mr-5",
         placeholder: "Find a lesson" %>
         <%= submit_tag "Search", class: "btn btn-flat" %>
       </div>
@@ -27,8 +29,12 @@
         <%# end %>
 
         <div class="card-body">
+            <% if lesson.photo.attached? %>
             <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url(<%= cl_image_path lesson.photo.key %>); height: 300; width: 400; crop: :fill">
-          <p class="card-title text-white"><%= lesson.name %><p>
+          <% else %>
+            <div class="card-picture d-flex flex-column" style="background-image: linear-gradient(to bottom right, rgba(0,0,0,0.8),rgba(0,0,0,0.3)), url('https://58southmoltonstreet.co.uk/wp-content/uploads/58PhotographyLogo_Guide.png, height: 300, width: 400, crop: :fill'); height: 300; width: 400; crop: :fill">
+          <% end %>
+          <p class="card-title"><%= lesson.name %><p>
             </div>
           <div class="card-photos">
 
@@ -53,12 +59,13 @@
         </div>
 
           <div class="card-lesson-bottom">
-            <div class="btn-see-lesson">
-              <%= link_to 'See Lesson', lesson_path(lesson), class:'card-btn btn ' %>
+            <div class="btn-see-lesson mt-5">
+              <%= link_to 'More info', lesson_path(lesson), class:'card-btn btn ' %>
             </div>
 
             <div class="lesson-price">
-              <small><%= lesson.price %>€</small>
+              <small><%= lesson.price %>€ -</small>
+              <small><%= lesson.duration %>h</small>
               <p> <%= %> </p>
             </div>
           </div>

@@ -1,7 +1,7 @@
 
 .card-rounded {
-  border: 0.5px solid grey;
   border-radius: 5px;
+  width: 18.5rem !important;
 }
 
 .drop-shadow {
@@ -9,7 +9,10 @@
 }
 
 .card-btn {
-  color: grey !important;
+  background-color: $button-green;
+  border-radius: 5px;
+  width: 100%;
+  color: white !important;
 }
 
 .card-body {
@@ -22,7 +25,7 @@ padding: 0 !important;
   width: 50px;
   height: 50px;
   object-fit: cover;
-  border: 0.5px solid black;
+
   margin-left: 24px;
   margin-bottom: 5px;
   margin-top: -2.6rem;
@@ -48,11 +51,18 @@ padding: 0 !important;
   height: 150px;
   margin-bottom: 10px;
   background-size: cover;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
 }
 
 .card-title {
   text-align: center;
   margin: auto 0;
+  background-color: white;
+  color: $button-green;
+  width: 96%;
+  border-radius: 5px;
+  margin-left: 4px;
 }
 
 .card-photos {
@@ -67,8 +77,47 @@ padding: 0 !important;
 .form-control.search {
   border-radius: 5px;
 }
+.form-control.search:hover {
+  background-color: #F5F5F5 !important;
+}
+.btn-flat {
+  color: $button-green;
+}
 
+// ui kit
 
+.card-product {
+  overflow: hidden;
+  height: 300px;
+  background: white;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+}
+
+.card-product img {
+  height: 40%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-product h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-product p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-product .card-product-infos {
+  padding: 16px;
+}
 
 
 
