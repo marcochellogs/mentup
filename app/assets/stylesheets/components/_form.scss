@@ -1,3 +1,15 @@
+.form-btn.booking-index {
+  width: 30%;
+  margin-top: 30px;
+}
+h2.name {
+   color: $button-green;
+}
+.date {
+  color: $button-green;
+  font-size: 30px !important;
+}
+
 .btn-forget {
   color: $button-green;
   padding: 0 20%;
@@ -11,9 +23,7 @@
 .form-name {
   color: $button-green;
 }
-.update {
 
-}
 .shared-btn-div.btn-cancel {
   height: 60px;
   padding-top: 5%;
@@ -23,17 +33,19 @@
 .btn-cancel {
   color: $button-green;
 }
+
 .btn-cancel:hover {
   color: red;
   text-decoration: none;
 
-  .container.right {
+.container.right {
 padding-left: 150px;
 }
+  
 .container.right.start {
 padding-top: 150px;
-
 }
+  
 .form-header {
   border-bottom: 5px solid #E0E0E0;
   border-width: thin;
