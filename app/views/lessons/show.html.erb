@@ -2,7 +2,7 @@
 
 <div class="container-body mt-5">
 
-  <div class="d-flex justify-content-around row">
+  <div class="d-flex justify-content-around row" style="height: 80vh;">
 
     <div class="container-soraya border p-3 col-3 text-center ml-4">
 
@@ -16,36 +16,32 @@
       </div>
 
       <div>
-        <div class="border w-90 mb-4">
+        <div class="w-90 p-5">
           <p> <em> <%= @user.bio %> </em></p>
         </div>
-        <div class="w-90 mb-4">
-          <h4> Last Rating for this <%= @user.name %></h4>
-          <p> <em> <%= @lesson.bookings.last.review.rating %> </em></p>
+        <div class="w-90 mb-4 p-2">
+          <% if @lesson.bookings.last.review %>
+            <h4> Last Rating for <%= @user.name %></h4>
+            <p><%= @lesson.bookings.last.review.title %></p>
+            <% @lesson.bookings.last.review.rating.times do %>
+              <i class="fas fa-star text-warning"></i>
+            <% end %>
+          <% else %>
+            <h4> <%= @user.name.capitalize %> has no reviews yet</h4>
+          <% end %>
         </div>
       </div>
     </div>
 
     <div class="container-soraya col-4 text-center d-flex flex-column">
 
-      <div class="container-body rounded-sm flex-grow-1 mt-3">
+      <div class="container-body rounded-sm flex-grow-1 mt-3 p-1">
         <h2><%= @lesson.name %></h2>
+        <%= cl_image_tag @lesson.photo.key, class: 'img-show-lesson' %>
+        <p class="p-3"> <%= @lesson.description %></p>
         <p> This lesson costs <%= @lesson.price %>€</p>
-      </div>
+      <%= link_to "Book Lesson with this mentor", new_lesson_booking_path(@lesson), class: 'btn form-btn'%>
 
-      <div class="border-bottom flex-grow-2" style="height: 30px; margin-bottom: 30px">
-      </div>
-
-      <div class="container-soraya border rounded-sm flex-grow-1">
-        <% if @reviews.nil? %>
-          <h5>There are no reviews</h5>
-        <% else %>
-          <% @reviews.each do |review| %>
-            <h3><%= review.title %></h3>
-            <p><%= review.rating %></p>
-            <p><%= review.description %></p>
-          <% end %>
-        <% end %>
       </div>
 
     </div>
@@ -53,14 +49,34 @@
 
     <div class="container-soraya border rounded p-3 col-3 text-center mr-4">
 
-      <div class="container-soraya">
-        <p> These are the dates and times in which this Mentor was already booked: </p>
-        <% @bookings.each do |booking| %>
-          <%= booking.date %>
-          <%= 'for ' + booking.lesson.duration.to_s + ' hours'%>
+      <div class="container-body" style="height: 15vh;">
+        <% if @bookings %>
+          <h5> This Mentor was already booked: </h5>
+          <% @bookings.last(3).each do |booking| %>
+          <p><%= booking.date.to_time.strftime('%A, %d %b %Y %l:%M %p')%></p>
+          <% end %>
+        <% else %>
+          <h5>This mentor was never booked</h5>
         <% end %>
       </div>
-      <%= link_to "Book Lesson with this mentor", new_lesson_booking_path(@lesson), class: 'btn form-btn'%>
+
+      <div class="container-body rounded-sm flex-grow-1 mt-3" style="height: 60vh;">
+        <h3>Last 3 reviews</h3>
+        <% if @reviews.nil? %>
+          <h5>There are no reviews</h5>
+        <% else %>
+            <% @reviews.last(3).each do |review| %>
+              <div class="container-soraya rounded-sm m-2 p-2">
+                <h5><%= review.title.capitalize %></h5>
+                <p><%= review.description %></p>
+                <% review.rating.times do %>
+                  <i class="fas fa-star text-warning"></i>
+                <% end %>
+              </div>
+            <% end %>
+        <% end %>
+      </div>
+
     </div>
 
   </div>
