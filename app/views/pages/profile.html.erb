@@ -1,5 +1,5 @@
 <div class="form-header">
-  <h1 class='text-center'>Your profile</h1>
+  <h5 class="form-title text-center">Welcome<h1 class="form-name text-center">This is your profile!</h1>
 </div>
 <%= render 'shared/footer' %>
 <div class="container-body">
@@ -16,7 +16,7 @@
 
       <div>
         <div class="w-90 p-5">
-          <p>  Bio </p>
+          <p><strong>  Bio </strong> </p>
           <p> <em> <%= @user.bio %> </em></p>
         </div>
         <%= link_to "Update your profile", edit_user_registration_path(@user), class: "btn form-btn profile-btn" %>
@@ -36,6 +36,10 @@
         </div>
       <% else %>
         <%= image_tag "mentup-verdone.png", class: 'mt-5'%>
+        <p><strong>Become a mentor with these 3 simple steps:</strong></p>
+        <p>1- Change your profile settings to "Mentor"</p>
+        <p>2- Create a lesson to teach others your best skill</p>
+        <p>3- Recieve bookings and start your amazing mentoring journey</p>
         <%= link_to "Become a mentor and teach others to be Pros", edit_user_registration_path(@user), class: "btn form-btn profile-btn" %>
       <% end %>
     </div>
