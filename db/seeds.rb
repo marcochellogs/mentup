@@ -6,9 +6,16 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 # Cloudinary::Uploader.upload("san_francisco.jpg")
+Review.destroy_all
+Booking.destroy_all
+Lesson.destroy_all
+Category.destroy_all
+User.destroy_all
+
 
 password = '123456'
 
+puts "seeding users"
 user1 = User.create(email:"mentor@gmail.com", password:password, name:"Marco Checchi", bio:"Hey there! I'm 23 years old and I'm a really good public speaker. I will teach you how to make a speech in front of 200 people and nail it!", is_mentor:true)
 file_path = File.join(Rails.root, "/app/assets/images/profile-marco.jpg")
 user1.photo.attach(io: File.open(file_path), filename: "picture marco.jpg")
@@ -48,69 +55,71 @@ user12.photo.attach(io: File.open(file_path), filename: "picture-maria.jpg")
 user13 = User.create(email:"studentnob@gmail.com", password:password, name:"Yassine Chaqroun", bio:"Hi, I'm Yassine! I am 35 and I am an amateurial singer. I am always open to gain valuable knowledge and I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
 user14 = User.create(email:"student1nob@gmail.com", password:password, name:"Francesco Ecclesie", bio:"Hi, I am Francesco, I am 50, I love to code and I love to learn new stuff. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
 user15 = User.create(email:"student2nob@gmail.com", password:password, name:"Leonardo Dalla Via", bio:"Hi, I'm an eager student and I like to always learn new stuff. I pride myself in being a good listener. I look forward to meeting many cool mentors on my way to success.", is_mentor:false)
+puts "done"
 
+puts "seeding categories"
 
 # 10 CATEGORIES with picture
-category = Category.create(name:"Public Speaking")
+category1 = Category.create(name:"Public Speaking")
 file_path = File.join(Rails.root, "/app/assets/images/category-public.jpg")
-category.photo.attach(io: File.open(file_path), filename: "public.jpg")
+category1.photo.attach(io: File.open(file_path), filename: "public.jpg")
 
-category = Category.create(name:"Finance")
+category2 = Category.create(name:"Finance")
 file_path = File.join(Rails.root, "/app/assets/images/category-finance.jpg")
-category.photo.attach(io: File.open(file_path), filename: "finance.jpg")
+category2.photo.attach(io: File.open(file_path), filename: "finance.jpg")
 
-category = Category.create(name:"Startup and Innovation")
+category3 = Category.create(name:"Startup and Innovation")
 file_path = File.join(Rails.root, "/app/assets/images/category-startup.jpg")
-category.photo.attach(io: File.open(file_path), filename: "startup.jpg")
+category3.photo.attach(io: File.open(file_path), filename: "startup.jpg")
 
-category = Category.create(name:"Self Help")
+category4 = Category.create(name:"Self Help")
 file_path = File.join(Rails.root, "/app/assets/images/category-selfhelp.jpg")
-category.photo.attach(io: File.open(file_path), filename: "selfhelp.jpg")
+category4.photo.attach(io: File.open(file_path), filename: "selfhelp.jpg")
 
-category = Category.create(name:"Languages")
+category5 = Category.create(name:"Languages")
 file_path = File.join(Rails.root, "/app/assets/images/category-language.jpg")
-category.photo.attach(io: File.open(file_path), filename: "language.jpg")
+category5.photo.attach(io: File.open(file_path), filename: "language.jpg")
 
-category = Category.create(name:"Yoga")
+category6 = Category.create(name:"Yoga")
 file_path = File.join(Rails.root, "/app/assets/images/category-yoga.jpg")
-category.photo.attach(io: File.open(file_path), filename: "yoga.jpg")
+category6.photo.attach(io: File.open(file_path), filename: "yoga.jpg")
 
-category = Category.create(name:"Cooking")
+category7 = Category.create(name:"Cooking")
 file_path = File.join(Rails.root, "/app/assets/images/category-cooking.jpg")
-category.photo.attach(io: File.open(file_path), filename: "lcooking.jpg")
+category7.photo.attach(io: File.open(file_path), filename: "lcooking.jpg")
 
-category = Category.create(name:"Dancing")
+category8 = Category.create(name:"Dancing")
 file_path = File.join(Rails.root, "/app/assets/images/category-dancing.jpg")
-category.photo.attach(io: File.open(file_path), filename: "dancing.jpg")
+category8.photo.attach(io: File.open(file_path), filename: "dancing.jpg")
 
-category = Category.create(name:"Painting")
+category9 = Category.create(name:"Painting")
 file_path = File.join(Rails.root, "/app/assets/images/category-painting.jpg")
-category.photo.attach(io: File.open(file_path), filename: "painting.jpg")
+category9.photo.attach(io: File.open(file_path), filename: "painting.jpg")
 
-category = Category.create(name:"Social Media")
+category10 = Category.create(name:"Social Media")
 file_path = File.join(Rails.root, "/app/assets/images/category-social.jpg")
-category.photo.attach(io: File.open(file_path), filename: "social-media.jpg")
+category10.photo.attach(io: File.open(file_path), filename: "social-media.jpg")
 
 
 
-def assign_pic_to_users
-  #take all the users, if they are mentors
-  #user.is_mentor = true or false
-  User.all.each do |user|
-    if user.is_mentor
-      #image mentor
-      file_path = File.join(Rails.root, "/app/assets/images/teacher.png")
-      user.photo.attach(io: File.open(file_path), filename: "teacher")
-    elsif
-      #image student
-      file_path = File.join(Rails.root, "/app/assets/images/student.jpg")
-      user.photo.attach(io: File.open(file_path), filename: "student")
+# def assign_pic_to_users
+#   #take all the users, if they are mentors
+#   #user.is_mentor = true or false
+#   User.all.each do |user|
+#     if user.is_mentor
+#       #image mentor
+#       file_path = File.join(Rails.root, "/app/assets/images/teacher.png")
+#       user.photo.attach(io: File.open(file_path), filename: "teacher")
+#     elsif
+#       #image student
+#       file_path = File.join(Rails.root, "/app/assets/images/student.jpg")
+#       user.photo.attach(io: File.open(file_path), filename: "student")
 
-    end
-  end
-end
+#     end
+#   end
+# end
 
-assign_pic_to_users
+# assign_pic_to_users
 
 
 def assign_pic_to_lessons
@@ -120,50 +129,55 @@ def assign_pic_to_lessons
     lesson.photo.attach(io: File.open(file_path), filename: "lesson")
   end
 end
+puts "seeding lessons"
 
 
 # 8 LESSONS
-Lesson.create(user_id:1, name:"Public Speaking for Beginners", description:"This one-hour mentorship is a inspiring look at how to become a confident public speaker.", duration:1, price:"40", category_id:1)
-Lesson.create(user_id:2, name:"Take Control of Your Finances!", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job.", duration:2, price:"60", category_id:2)
-Lesson.create(user_id:3, name:"Launching Your Startup!", description:"This one-hour class is a perfect introduction to the world of startups giving you tips to navigate this sector with confidence.", duration:2, price:"50", category_id:3)
-Lesson.create(user_id:4, name:"Self Help Series: Create Good Habtis", description:"How to maintain and create good habits, this is a very quick and to the point mentorship that goes over 16 tips to help you create and stick to good habits.", duration:1, price:"110", category_id:4)
-Lesson.create(user_id:5, name:"Learn German 1 : Guten Tag", description:"During your lesson you will learn the 5 ways of greetings in the German language and how to express yourself and say your name.", duration:3, price:"400", category_id:5)
-Lesson.create(user_id:6, name:"Learn Watercolor Painting Basics", description:"This class is for anyone that wants to learn the basics of watercoloring in order to start on their own fashion or illustration project.", duration:2, price:"80", category_id:9)
-Lesson.create(user_id:7, name:"Healing Yoga", description:"This hour yoga class teaches the health-giving alignments of 24 key Yoga-poses.", duration:1, price:"80", category_id:6)
-Lesson.create(user_id:8, name:"Inspired Cooking: Creating Dishes From Art", description:"In this 2h cooking class, we will create a dish that evokes the essence of a favorite painting.", duration:1, price:"80", category_id:7)
+lesson1 = Lesson.create!(user_id: user1.id, name:"Public Speaking for Beginners", description:"This one-hour mentorship is a inspiring look at how to become a confident public speaker.", duration:1, price:"40", category_id: category1.id)
+lesson2 = Lesson.create!(user_id: user2.id, name:"Take Control of Your Finances!", description:"This lesson is made for beginners who have a speech coming up and want some professional mentoring to do a great job.", duration:2, price:"60", category_id: category2.id)
+lesson3 = Lesson.create!(user_id: user3.id, name:"Launching Your Startup!", description:"This one-hour class is a perfect introduction to the world of startups giving you tips to navigate this sector with confidence.", duration:2, price:"50", category_id: category3.id)
+lesson4 = Lesson.create!(user_id: user4.id, name:"Self Help Series: Create Good Habtis", description:"How to maintain and create good habits, this is a very quick and to the point mentorship that goes over 16 tips to help you create and stick to good habits.", duration:1, price:"110", category_id: category4.id)
+lesson5 = Lesson.create!(user_id: user5.id, name:"Learn German 1 : Guten Tag", description:"During your lesson you will learn the 5 ways of greetings in the German language and how to express yourself and say your name.", duration:3, price:"400", category_id: category5.id)
+lesson6 = Lesson.create!(user_id: user6.id, name:"Learn Watercolor Painting Basics", description:"This class is for anyone that wants to learn the basics of watercoloring in order to start on their own fashion or illustration project.", duration:2, price:"80", category_id: category9.id)
+lesson7 = Lesson.create!(user_id: user7.id, name:"Healing Yoga", description:"This hour yoga class teaches the health-giving alignments of 24 key Yoga-poses.", duration:1, price:"80", category_id: category6.id)
+lesson8 =Lesson.create!(user_id: user8.id, name:"Inspired Cooking: Creating Dishes From Art", description:"In this 2h cooking class, we will create a dish that evokes the essence of a favorite painting.", duration:1, price:"80", category_id: category7.id)
 assign_pic_to_lessons
 
+puts "seeding bookins"
+
+
 # Many BOOKINGS (14)
-Booking.create(date: DateTime.now, lesson_id:1, user_id:9) #has a review
-Booking.create(date: DateTime.now, lesson_id:2, user_id:10) #finance #has a review
-Booking.create(date: DateTime.now, lesson_id:3, user_id:11) #startup #has a review
-Booking.create(date: DateTime.now + 5.hours, lesson_id:4, user_id:11) #selfcare #has a review
-Booking.create(date: DateTime.now + 5.hours, lesson_id:4, user_id:11) #has a review
-Booking.create(date: DateTime.now + 5.hours, lesson_id:4, user_id:11) #has a review
-Booking.create(date: DateTime.now + 10.hours, lesson_id:5, user_id:1) #language #has a review
-Booking.create(date: DateTime.now + 10.hours, lesson_id:5, user_id:2) #has a review
-Booking.create(date: DateTime.now + 15.hours, lesson_id:5, user_id:4) #has a review
-Booking.create(date: DateTime.now + 22.hours, lesson_id:6, user_id:7) #painting #has a review
-Booking.create(date: DateTime.now + 25.hours, lesson_id:6, user_id:7)
-Booking.create(date: DateTime.now + 3.hours, lesson_id:7, user_id:11) #yoga #has a review
-Booking.create(date: DateTime.now + 6.hours, lesson_id:8, user_id:11) #cooking #has a review
-Booking.create(date: DateTime.now + 23.hours, lesson_id:8, user_id:11)
+booking1 = Booking.create(date: DateTime.now, lesson_id: lesson1.id, user_id: user9.id) #has a review
+booking2 = Booking.create(date: DateTime.now, lesson_id: lesson2.id, user_id: user11.id) #finance #has a review
+booking3 = Booking.create(date: DateTime.now, lesson_id: lesson3.id, user_id: user11.id) #startup #has a review
+booking4 = Booking.create(date: DateTime.now + 5.hours, lesson_id: lesson4.id, user_id: user11.id) #selfcare #has a review
+booking5 = Booking.create(date: DateTime.now + 5.hours, lesson_id: lesson4.id, user_id: user11.id) #has a review
+booking6 = Booking.create(date: DateTime.now + 5.hours, lesson_id: lesson4.id, user_id: user11.id) #has a review
+booking7 = Booking.create(date: DateTime.now + 10.hours, lesson_id: lesson5.id, user_id: user1.id) #language #has a review
+booking8 = Booking.create(date: DateTime.now + 10.hours, lesson_id: lesson5.id, user_id: user2.id) #has a review
+booking9 = Booking.create(date: DateTime.now + 15.hours, lesson_id: lesson5.id, user_id: user3.id) #has a review
+booking10 = Booking.create(date: DateTime.now + 22.hours, lesson_id: lesson6.id, user_id: user7.id) #painting #has a review
+booking11 = Booking.create(date: DateTime.now + 25.hours, lesson_id: lesson6.id, user_id: user7.id)
+booking12 = Booking.create(date: DateTime.now + 3.hours, lesson_id:lesson7.id, user_id: user11.id) #yoga #has a review
+booking13 = Booking.create(date: DateTime.now + 6.hours, lesson_id:lesson8.id, user_id: user11.id) #cooking #has a review
+booking14 = Booking.create(date: DateTime.now + 23.hours, lesson_id: lesson8.id, user_id: user11.id)
 
 
+puts "seeding reviews"
 
 # 12 REVIEWS
-Review.create(title:"Great Mentor", description:"After this session I managed to do a great speech. I loved the one on one talks, thay were very inspiring and I got much from the experience of this guy. I highly recommend him!", rating:5, booking_id:1)
-Review.create(title:"Don't take this mentor!", description:"Didn't help me at all!", rating:1, booking_id:2)
-Review.create(title:"Really helpful!", description:"Already after 1 session, I gained a lot of knowledge!", rating:5, booking_id:3)
-Review.create(title:"Great Mentor", description:"I can truly recommend this lesson!", rating:4, booking_id:4)
-Review.create(title:"Amzing job!", description:"I can finally stand up for my rights, after 4 sessions only!", rating:5, booking_id:5)
-Review.create(title:"Great Mentor", description:"Thanks to my mentor I learned to say no!", rating:3, booking_id:6)
-Review.create(title:"Such a help!", description:"I had 10 lessons with my mentor and I improved a lot!", rating:5, booking_id:7)
-Review.create(title:"Nice Mentor", description:"It was a super nice afternoon while improving my german!", rating:4, booking_id:8)
-Review.create(title:"Helped me", description:"Thanks to my mentor I can make an order in french! Though he was not really nice", rating:3, booking_id:9)
-Review.create(title:"Disappointed!", description:"My mentor was not helpful at all! Didn't learn any new skills", rating:1, booking_id:10)
-Review.create(title:"Nice cooking session", description:"Thanks to my super nice mentor, I could surprise my family with a new recipe! It was a super nice evening!", rating:4, booking_id:13)
-Review.create(title:"Best decision", description:"I am so happy with my yoga teacher, relaxed me a lot!", rating:5, booking_id:12)
+Review.create(title:"Great Mentor", description:"After this session I managed to do a great speech. I loved the one on one talks, thay were very inspiring and I got much from the experience of this guy. I highly recommend him!", rating:5, booking_id: booking1.id)
+Review.create(title:"Don't take this mentor!", description:"Didn't help me at all!", rating:1, booking_id: booking2.id)
+Review.create(title:"Really helpful!", description:"Already after 1 session, I gained a lot of knowledge!", rating:5, booking_id: booking3.id)
+Review.create(title:"Great Mentor", description:"I can truly recommend this lesson!", rating:4, booking_id: booking4.id)
+Review.create(title:"Amzing job!", description:"I can finally stand up for my rights, after 4 sessions only!", rating:5, booking_id: booking5.id)
+Review.create(title:"Great Mentor", description:"Thanks to my mentor I learned to say no!", rating:3, booking_id: booking6.id)
+Review.create(title:"Such a help!", description:"I had 10 lessons with my mentor and I improved a lot!", rating:5, booking_id: booking7.id)
+Review.create(title:"Nice Mentor", description:"It was a super nice afternoon while improving my german!", rating:4, booking_id: booking8.id)
+Review.create(title:"Helped me", description:"Thanks to my mentor I can make an order in french! Though he was not really nice", rating:3, booking_id: booking9.id)
+Review.create(title:"Disappointed!", description:"My mentor was not helpful at all! Didn't learn any new skills", rating:1, booking_id: booking10.id)
+Review.create(title:"Nice cooking session", description:"Thanks to my super nice mentor, I could surprise my family with a new recipe! It was a super nice evening!", rating:4, booking_id: booking13.id)
+Review.create(title:"Best decision", description:"I am so happy with my yoga teacher, relaxed me a lot!", rating:5, booking_id: booking12.id)
 
 
 

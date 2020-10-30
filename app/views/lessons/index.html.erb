@@ -35,10 +35,10 @@
 
             <div class="card-profile-photo">
             <% if lesson.user.photo.attached? %>
-              <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, class:"img-border avatar" %>
+              <%= cl_image_tag lesson.user.photo.key, height: 300, width: 400, crop: :fill, gravity: :face, class:"img-border avatar" %>
               <br>
             <% else %>
-              <img class="img-border" src="placeholder-profile.jpg" alt="placeholder">
+              <%= image_tag "placeholder-profile.jpg", class: "img-border", alt: "placeholder" %>
               <br>
             <% end %>
             </div>
